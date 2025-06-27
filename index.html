@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elegant Events - Wedding Planning & Services</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#d4af37", secondary: "#f8f5e6" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+          font-family: 'Poppins', sans-serif;
+      }
+      h1, h2, h3, h4, h5, h6 {
+          font-family: 'Playfair Display', serif;
+      }
+      .header-nav {
+          transition: background-color 0.3s ease;
+      }
+      .service-card, .entertainment-card, .blog-card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .service-card:hover, .entertainment-card:hover, .blog-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      .gallery-item img {
+          transition: transform 0.5s ease;
+      }
+      .gallery-item:hover img {
+          transform: scale(1.05);
+      }
+      .btn-primary {
+          background: linear-gradient(to right, #d4af37, #e5c76b);
+          transition: all 0.3s ease;
+      }
+      .btn-primary:hover {
+          background: linear-gradient(to right, #c19d2c, #d4af37);
+          box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+      }
+      .testimonial-slider {
+          transition: transform 0.5s ease;
+      }
+      input:focus, textarea:focus {
+          outline: none;
+          border-color: #d4af37;
+          box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+      .custom-checkbox {
+          position: relative;
+          padding-left: 30px;
+          cursor: pointer;
+          user-select: none;
+      }
+      .custom-checkbox input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+      }
+      .checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 20px;
+          width: 20px;
+          background-color: #fff;
+          border: 2px solid #d4af37;
+          border-radius: 4px;
+      }
+      .custom-checkbox:hover input ~ .checkmark {
+          background-color: #f8f5e6;
+      }
+      .custom-checkbox input:checked ~ .checkmark {
+          background-color: #d4af37;
+      }
+      .checkmark:after {
+          content: "";
+          position: absolute;
+          display: none;
+      }
+      .custom-checkbox input:checked ~ .checkmark:after {
+          display: block;
+      }
+      .custom-checkbox .checkmark:after {
+          left: 6px;
+          top: 2px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+      }
+      .custom-switch {
+          position: relative;
+          display: inline-block;
+          width: 50px;
+          height: 24px;
+      }
+      .custom-switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+      }
+      .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          transition: .4s;
+          border-radius: 24px;
+      }
+      .slider:before {
+          position: absolute;
+          content: "";
+          height: 18px;
+          width: 18px;
+          left: 3px;
+          bottom: 3px;
+          background-color: white;
+          transition: .4s;
+          border-radius: 50%;
+      }
+      input:checked + .slider {
+          background-color: #d4af37;
+      }
+      input:checked + .slider:before {
+          transform: translateX(26px);
+      }
+      .tab-switcher {
+          display: flex;
+          background-color: #f8f8f8;
+          border-radius: 9999px;
+          padding: 4px;
+      }
+      .tab-button {
+          padding: 8px 16px;
+          border-radius: 9999px;
+          transition: all 0.3s ease;
+          white-space: nowrap;
+      }
+      .tab-button.active {
+          background-color: #d4af37;
+          color: white;
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Header & Navigation -->
+    <header class="header-nav fixed w-full z-50 bg-fuchsia-700">
+      <div
+        class="container mx-auto px-4 py-4 flex items-center justify-between"
+      >
+        <div class="logo text-2xl font-['Pacifico'] text-primary">kumbhalgarh Event's</div>
+
+        <nav class="hidden md:flex items-center space-x-8">
+          <a
+            href="#home"
+            class="text-white hover:text-opacity-75 transition-colors"
+            >Home</a
+          >
+          <a
+            href="#services"
+            class="text-white hover:text-opacity-75 transition-colors"
+            >Services</a
+          >
+          <a
+            href="#planning"
+            class="text-white hover:text-opacity-75 transition-colors"
+            >Planning</a
+          >
+          <a
+            href="#gallery"
+            class="text-white hover:text-opacity-75 transition-colors"
+            >Gallery</a
+          >
+          <a
+            href="#testimonials"
+            class="text-white hover:text-opacity-75 transition-colors"
+            >Testimonials</a
+          >
+          <a
+            href="#blog"
+            class="text-white hover:text-opacity-75 transition-colors"
+            >Blog</a
+          >
+        </nav>
+
+        <div class="flex items-center">
+          <a
+            href="#contact"
+            class="hidden md:block bg-white  text-fuchsia-700 px-6 py-2 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all"
+            >Contact Us</a
+          >
+          <button
+            class="md:hidden w-10 h-10 flex items-center justify-center text-white"
+            id="mobileMenuButton"
+          >
+            <i class="ri-menu-line ri-lg"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-white shadow-lg absolute w-full"
+      >
+        <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+          <a
+            href="#home"
+            class="text-gray-800 hover:text-primary py-2 transition-colors"
+            >Home</a
+          >
+          <a
+            href="#services"
+            class="text-gray-800 hover:text-primary py-2 transition-colors"
+            >Services</a
+          >
+          <a
+            href="#planning"
+            class="text-gray-800 hover:text-primary py-2 transition-colors"
+            >Planning</a
+          >
+          <a
+            href="#gallery"
+            class="text-gray-800 hover:text-primary py-2 transition-colors"
+            >Gallery</a
+          >
+          <a
+            href="#testimonials"
+            class="text-gray-800 hover:text-primary py-2 transition-colors"
+            >Testimonials</a
+          >
+          <a
+            href="#blog"
+            class="text-gray-800 hover:text-primary py-2 transition-colors"
+            >Blog</a
+          >
+          <a
+            href="#contact"
+            class="bg-fuchsia-700 text-white px-6 py-2 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all inline-block text-center"
+            >Contact Us</a
+          >
+        </div>
+      </div>
+    </header>
+
+  <!-- Alpine.js CDN (add in <head> if not already added) -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+<!-- Hero Section -->
+<section
+  id="home"
+  x-data="{
+   images: [
+  'hero-1.png', // wedding decor
+  'hero-2.png', // floral wedding
+  'hero-3.png'  // romantic setup
+],
+
+    currentIndex: 0,
+    startSlider() {
+      setInterval(() => {
+        this.currentIndex = (this.currentIndex + 1) % this.images.length;
+      }, 5000);
+    }
+  }"
+  x-init="startSlider"
+  :style="`background-image: url('${images[currentIndex]}'); background-size: cover; background-position: center;`"
+  class="relative min-h-screen flex items-center transition-all duration-1000 ease-in-out"
+>
+  <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30"></div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="max-w-2xl">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+        Creating Unforgettable Wedding Moments
+      </h1>
+      <p class="text-xl text-white/90 mb-8">
+        Let us transform your special day into a magical experience that you and your guests will cherish forever.
+      </p>
+     <div class="flex flex-col sm:flex-row flex-wrap gap-4 items-center justify-center">
+  <a
+    href="#contact"
+    class="bg-fuchsia-700 text-white px-8 py-3 !rounded-button whitespace-nowrap font-medium text-center w-full sm:w-auto max-w-xs"
+  >
+    Get Started
+  </a>
+  <a
+    href="#services"
+    class="bg-white/10 backdrop-blur-sm text-white border border-white/30 px-8 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-white/20 transition-all text-center w-full sm:w-auto max-w-xs"
+  >
+    Explore Services
+  </a>
+</div>
+
+    </div>
+  </div>
+</section>
+
+   <section class="py-12 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      
+      <!-- Card 1 -->
+      <div class=" bg-fuchsia-700 text-center p-8 rounded-lg shadow-md" >
+
+        <h3 class="text-xl font-semibold mb-2 text-white">Experiences</h3>
+        <p class="text-3xl font-bold text-white">20 <span class="text-white text-3xl font-light">+</span></p>
+      </div>
+      
+      <!-- Card 2 -->
+     <div class=" bg-fuchsia-700 text-center p-8 rounded-lg shadow-md">
+
+        <h3 class="text-xl font-semibold mb-2 text-white">Corporate Events</h3>
+        <p class="text-3xl font-bold text-white">300 <span class="text-white text-3xl font-light">+</span></p>
+      </div>
+      
+      <!-- Card 3 -->
+      <div class="bg-fuchsia-700  text-center p-8 rounded-lg shadow-md" >
+
+        <h3 class="text-xl font-semibold mb-2 text-white">Wedding</h3>
+        <p class="text-3xl font-bold text-white">400 <span class="text-white text-3xl font-light">+</span></p>
+      </div>
+      
+      <!-- Card 4 -->
+      <div class="bg-fuchsia-700 text-center p-8 rounded-lg shadow-md" >
+
+        <h3 class="text-xl font-semibold mb-2 text-white">Musical Concerts</h3>
+        <p class="text-3xl font-bold text-white">200 <span class="text-white text-3xl font-light">+</span></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+   
+    <section class="relative bg-white bg-opacity-80 py-16">
+  <div class="container mx-auto px-4">
+    <!-- Title -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4 text-fuchsia-700 ">Event Management Services</h2>
+      <img src="images/title-icon.png" alt=" kumbhalgarh" class="mx-auto h-6">
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <!-- Service Item -->
+      <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
+        <img src="piclumen-1751026693231-removebg-preview.png" alt="Corporate" class="mx-auto mb-4 w-[60px]">
+        <h3 class="text-lg text-fuchsia-700  font-semibold mb-2">Corporate Event Management</h3>
+        <p class="text-sm text-gray-600">kumbhalgarh is your one-stop solution for managing corporate events. We provide complete event management and creative services, custom-tailored to your specific requirements.</p>
+      </div>
+
+     <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
+        <img src="images/s-1.png" alt="Seminar" class="mx-auto mb-4 w-[60px]">
+        <h3 class="text-lg text-fuchsia-700   font-semibold mb-2">Seminars and Conferences</h3>
+        <p class="text-sm text-gray-600">Among the top event management companies in Delhi NCR, we organise impactful seminars and conferences. Our focus is on fulfilling diverse business needs while delivering results that exceed expectations.</p>
+      </div>
+
+     <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
+        <img src="images/color-icon/brand.png" alt="Brand" class="mx-auto mb-4 w-[60px]">
+        <h3 class="text-lg text-fuchsia-700  font-semibold mb-2">Brand Promotion</h3>
+        <p class="text-sm text-gray-600">Looking for a professional event management company for brand promotions? kumbhalgarh events is your ideal partner to handle these tasks effectively. Our skilled team ensures quality service delivery.</p>
+      </div>
+
+     <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
+        <img src="images/color-icon/meeting.png" alt="MICE" class="mx-auto mb-4 w-[60px]">
+        <h3 class="text-lg text-fuchsia-700  font-semibold mb-2">MICE</h3>
+        <p class="text-sm text-gray-600">kumbhalgarh events is a leading name in managing Meetings, Incentives, Conferences & Exhibitions (MICE) in Delhi NCR. Reach out to us today for flawless MICE services tailored to your business.</p>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-12">
+     <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
+        <img src="images/color-icon/management.png" alt="Exhibition" class="mx-auto mb-4 w-[60px]">
+        <h3 class="text-lg text-fuchsia-700  font-semibold mb-2">Exhibition Management</h3>
+        <p class="text-sm text-gray-600">Attract and engage your target audience with well-executed exhibitions by kumbhalgarh events. We help boost your business intelligently and efficiently with our expert services.</p>
+      </div>
+
+      <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
+        <img src="images/color-icon/artist.png" alt="Bollywood Artists" class="mx-auto mb-4 w-[60px]">
+        <h3 class="text-lg text-fuchsia-700  font-semibold mb-2">Bollywood Artists</h3>
+        <p class="text-sm text-gray-600">kumbhalgarh is a trusted company for organising events with Bollywood celebrities. We collaborate with a wide range of stars available for private and exclusive occasions.</p>
+      </div>
+
+      <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
+        <img src="images/color-icon/feshion.png" alt="Fashion Shows" class="mx-auto mb-4 w-[60px]">
+        <h3 class="text-lg text-fuchsia-700  font-semibold mb-2">Fashion Shows</h3>
+        <p class="text-sm text-gray-600">Our dynamic team of professionals and fresh talent delivers outstanding fashion show experiences. For best-in-class fashion show organisation, get in touch with us today.</p>
+      </div>
+
+      <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
+        <img src="images/color-icon/vir.png" alt="Virtual Shows" class="mx-auto mb-4 w-[60px]">
+        <h3 class="text-lg text-fuchsia-700 font-semibold mb-2">Virtual Shows</h3>
+        <p class="text-sm text-gray-600">Overcome global limitations and continue expanding your reach. We help you promote your services or products globally with professional virtual event solutions.</p>
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="text-center mt-12">
+      <a href="https://www.kumbhalgarh.in/Wedding-new1" class="inline-block bg-fuchsia-700 hover:bg-black text-white  font-medium px-6 py-3 rounded-full transition">Event Gallery</a>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Wedding Planning Section -->
+    <section id="planning" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="w-full lg:w-1/2">
+            <img
+              src="https://readdy.ai/api/search-image?query=elegant%20wedding%20planning%20scene%20with%20a%20bride%20and%20wedding%20planner%20reviewing%20details%2C%20looking%20at%20fabric%20swatches%2C%20flower%20samples%2C%20and%20venue%20photos.%20The%20scene%20should%20include%20a%20planning%20binder%2C%20calendar%2C%20and%20design%20elements.%20Professional%20photography%20style%20with%20soft%20natural%20lighting&width=600&height=700&seq=2&orientation=portrait"
+              alt="Wedding Planning Process"
+              class="rounded-lg shadow-xl w-full h-auto object-cover"
+            />
+          </div>
+
+          <div class="w-full lg:w-1/2">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+              Your Wedding Journey
+            </h2>
+            <p class="text-gray-600 mb-8">
+              We guide you through every step of the planning process, ensuring
+              a stress-free experience from engagement to your special day.
+            </p>
+
+            <div class="space-y-6">
+              <div class="flex">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-fuchsia-700 rounded-full flex items-center justify-center text-white"
+                >
+                  1
+                </div>
+                <div class="ml-6">
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">
+                    Initial Consultation
+                  </h3>
+                  <p class="text-gray-600">
+                    We'll discuss your vision, preferences, and budget to create
+                    a personalized wedding plan.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-fuchsia-700 rounded-full flex items-center justify-center text-white"
+                >
+                  2
+                </div>
+                <div class="ml-6">
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">
+                    Venue & Vendor Selection
+                  </h3>
+                  <p class="text-gray-600">
+                    We'll help you choose the perfect venue and trusted vendors
+                    that match your style.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-fuchsia-700 rounded-full flex items-center justify-center text-white"
+                >
+                  3
+                </div>
+                <div class="ml-6">
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">
+                    Design & Coordination
+                  </h3>
+                  <p class="text-gray-600">
+                    We'll handle all the details, from theme design to day-of
+                    coordination.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-fuchsia-700 rounded-full flex items-center justify-center text-white"
+                >
+                  4
+                </div>
+                <div class="ml-6">
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">
+                    Your Perfect Day
+                  </h3>
+                  <p class="text-gray-600">
+                    Relax and enjoy your special day while we ensure everything
+                    runs smoothly.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-10">
+              <h4 class="text-lg font-bold text-gray-800 mb-4">
+                Wedding Planning Checklist
+              </h4>
+              <div class="space-y-3">
+                <label class="flex items-center space-x-2">
+  <input type="checkbox" checked class="w-5 h-5 border-fuchsia-700 accent-fuchsia-700 rounded" />
+  <span class="text-gray-700">Choose your wedding date</span>
+</label>
+
+                <label class="flex items-center space-x-2">
+  <input type="checkbox" checked class="w-5 h-5 border-fuchsia-700 accent-fuchsia-700 rounded" />
+  <span class="text-gray-700">Choose your wedding date</span>
+</label>
+
+               <label class="flex items-center space-x-2">
+  <input type="checkbox" checked class="w-5 h-5 border-fuchsia-700 accent-fuchsia-700 rounded" />
+  <span class="text-gray-700">Choose your wedding date</span>
+</label>
+
+               <label class="flex items-center space-x-2">
+  <input type="checkbox" checked class="w-5 h-5 border-fuchsia-700 accent-fuchsia-700 rounded" />
+  <span class="text-gray-700">Choose your wedding date</span>
+</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <section class="bg-white py-16">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8">
+      Our Event Services
+    </h2>
+
+    <div class="overflow-hidden">
+      <!-- Slider Track -->
+      <div id="cardSlider" class="flex transition-transform duration-700 ease-in-out w-max">
+        <!-- 6 Cards -->
+        <div class="w-[300px] flex-shrink-0 mx-2 bg-white border border-fuchsia-700 rounded-xl shadow-md p-4">
+          <img src="images/wedding.jpg" class="h-40 w-full object-cover rounded" />
+          <h3 class="text-lg font-semibold mt-4 text-fuchsia-700">Luxury Wedding</h3>
+          <p class="text-sm text-gray-600">We create luxury wedding experiences in NCR.</p>
+        </div>
+        <div class="w-[300px] flex-shrink-0 mx-2 bg-white border border-fuchsia-700 rounded-xl shadow-md p-4">
+          <img src="images/show.jpg" class="h-40 w-full object-cover rounded" />
+          <h3 class="text-lg font-semibold mt-4 text-fuchsia-700">Reality Shows</h3>
+          <p class="text-sm text-gray-600">Top performers to elevate your events.</p>
+        </div>
+        <div class="w-[300px] flex-shrink-0 mx-2 bg-white border border-fuchsia-700 rounded-xl shadow-md p-4">
+          <img src="images/celebrity.jpg" class="h-40 w-full object-cover rounded" />
+          <h3 class="text-lg font-semibold mt-4 text-fuchsia-700">Celebrity Management</h3>
+          <p class="text-sm text-gray-600">We manage top-tier talent across India.</p>
+        </div>
+        <div class="w-[300px] flex-shrink-0 mx-2 bg-white border border-fuchsia-700 rounded-xl shadow-md p-4">
+          <img src="images/decor.jpg" class="h-40 w-full object-cover rounded" />
+          <h3 class="text-lg font-semibold mt-4 text-fuchsia-700">Decor Services</h3>
+          <p class="text-sm text-gray-600">Beautiful event decoration and florals.</p>
+        </div>
+        <div class="w-[300px] flex-shrink-0 mx-2 bg-white border border-fuchsia-700 rounded-xl shadow-md p-4">
+          <img src="images/dj.jpg" class="h-40 w-full object-cover rounded" />
+          <h3 class="text-lg font-semibold mt-4 text-fuchsia-700">DJ & Sound</h3>
+          <p class="text-sm text-gray-600">Rock your event with DJ and lights.</p>
+        </div>
+        <div class="w-[300px] flex-shrink-0 mx-2 bg-white border border-fuchsia-700 rounded-xl shadow-md p-4">
+          <img src="images/video1.jpg" class="h-40 w-full object-cover rounded" />
+          <h3 class="text-lg font-semibold mt-4 text-fuchsia-700">Video Production</h3>
+          <p class="text-sm text-gray-600">Capture your day professionally.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const slider = document.getElementById("cardSlider");
+  let position = 0;
+  const cardWidth = 304; // card + margin (300px + 2*2px margin)
+  const totalCards = slider.children.length;
+
+  function slideCards() {
+    // Move by one card
+    position += 1;
+    if (position > totalCards - 3) {
+      position = 0;
+    }
+    slider.style.transform = `translateX(-${position * cardWidth}px)`;
+  }
+
+  setInterval(slideCards, 2000); // slide every 2 seconds
+</script>
+
+
+<!-- Tailwind custom animation (add in your CSS or tailwind.config.js if using JIT) -->
+<style>
+@keyframes slideIn {
+  0% { transform: translateX(-100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+.animate-slide-in {
+  animation: slideIn 1s ease-out forwards;
+}
+</style>
+
+
+    <!-- Entertainment Options -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Entertainment Options
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Choose from our curated selection of premium entertainment options
+            to create the perfect atmosphere.
+          </p>
+        </div>
+
+        <div class="tab-switcher flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-12 px-4">
+  <button
+    class="tab-button bg-fuchsia-700 text-white px-8 py-3 rounded-full font-semibold text-center w-full sm:w-auto"
+    data-tab="music"
+  >
+    Music
+  </button>
+
+  <button
+    class="tab-button bg-fuchsia-700 text-white px-8 py-3 rounded-full font-semibold text-center w-full sm:w-auto"
+    data-tab="performance"
+  >
+    Performances
+  </button>
+
+  <button
+    class="tab-button bg-fuchsia-700 text-white px-8 py-3 rounded-full font-semibold text-center w-full sm:w-auto"
+    data-tab="activities"
+  >
+    Activities
+  </button>
+</div>
+
+
+        <div class="tab-content" id="musicTab">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="entertainment-card bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20live%20band%20performing%20at%20a%20wedding%20reception%2C%20with%20musicians%20in%20formal%20attire%20playing%20instruments%20on%20a%20stage%20with%20professional%20lighting%2C%20capturing%20the%20atmosphere%20of%20a%20high-end%20wedding%20celebration&width=400&height=300&seq=3&orientation=landscape"
+                  alt="Live Band"
+                  class="w-full h-full object-cover object-top"
+                />
+                <div
+                  class="absolute top-4 right-4  bg-fuchsia-700 text-white px-3 py-1 rounded-full text-sm"
+                >
+                  Popular
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Live Band</h3>
+                <p class="text-gray-600 mb-4">
+                  Professional musicians performing your favorite songs live for
+                  an unforgettable experience.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-fuchsia-700 font-bold">From $2,500</span>
+                  <span class="text-gray-800 text-sm">Available</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="entertainment-card bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=professional%20DJ%20setup%20at%20an%20elegant%20wedding%20reception%20with%20DJ%20mixing%20music%2C%20high-end%20equipment%2C%20lighting%20effects%2C%20and%20a%20dance%20floor%20with%20guests%20dancing%2C%20capturing%20the%20atmosphere%20of%20a%20sophisticated%20wedding%20celebration&width=400&height=300&seq=4&orientation=landscape"
+                  alt="Professional DJ"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Professional DJ
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Experienced DJs with premium sound systems to keep your dance
+                  floor packed all night.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-fuchsia-700  font-bold">From $1,200</span>
+                  <span class="text-gray-800 text-sm">Available</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="entertainment-card bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20string%20quartet%20performing%20at%20a%20wedding%20ceremony%2C%20with%20musicians%20in%20formal%20attire%20playing%20classical%20instruments%20in%20a%20beautifully%20decorated%20venue%20with%20flowers%20and%20soft%20lighting%2C%20capturing%20the%20atmosphere%20of%20a%20sophisticated%20wedding&width=400&height=300&seq=5&orientation=landscape"
+                  alt="String Quartet"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  String Quartet
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Classical elegance for your ceremony and cocktail hour with
+                  beautiful string arrangements.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-fuchsia-700  font-bold">From $1,800</span>
+                  <span class="text-gray-800     text-sm"
+                    >Limited Availability</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content hidden" id="performanceTab">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="entertainment-card bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20ballroom%20dancers%20performing%20at%20a%20wedding%20reception%2C%20professional%20dancers%20in%20formal%20attire%20demonstrating%20ballroom%20dancing%20with%20graceful%20movements%20in%20a%20beautifully%20decorated%20venue%20with%20soft%20lighting&width=400&height=300&seq=6&orientation=landscape"
+                  alt="Ballroom Dancers"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Ballroom Dancers
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Professional dancers to entertain your guests and offer dance
+                  lessons during the reception.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">From $1,500</span>
+                  <span class="text-green-600 text-sm">Available</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="entertainment-card bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=fire%20dancers%20performing%20at%20an%20evening%20wedding%20reception%2C%20with%20performers%20in%20elegant%20costumes%20creating%20beautiful%20fire%20displays%20against%20a%20night%20sky%2C%20with%20wedding%20guests%20watching%20in%20amazement&width=400&height=300&seq=7&orientation=landscape"
+                  alt="Fire Dancers"
+                  class="w-full h-full object-cover object-top"
+                />
+                <div
+                  class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm"
+                >
+                  Unique
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Fire Dancers
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Spectacular fire performance to create a magical atmosphere
+                  during your evening reception.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">From $2,000</span>
+                  <span class="text-green-600 text-sm"
+                    >Limited Availability</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="entertainment-card bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20acrobatic%20performers%20at%20a%20high-end%20wedding%20reception%2C%20with%20acrobats%20in%20stylish%20costumes%20performing%20aerial%20silk%20routines%20in%20a%20beautifully%20decorated%20venue%20with%20professional%20lighting&width=400&height=300&seq=8&orientation=landscape"
+                  alt="Acrobatic Performers"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Acrobatic Performers
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Breathtaking acrobatic performances that will amaze and
+                  delight your wedding guests.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">From $2,200</span>
+                  <span class="text-yellow-600 text-sm">Few Spots Left</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content hidden" id="activitiesTab">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="entertainment-card bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20photo%20booth%20setup%20at%20a%20wedding%20reception%20with%20beautiful%20backdrop%2C%20props%2C%20and%20guests%20taking%20photos%2C%20professional%20lighting%20and%20high-quality%20camera%20equipment%20in%20a%20stylish%20wedding%20venue&width=400&height=300&seq=9&orientation=landscape"
+                  alt="Photo Booth"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Luxury Photo Booth
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  High-end photo booth with custom backdrops, props, and instant
+                  printing for memorable keepsakes.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">From $800</span>
+                  <span class="text-green-600 text-sm">Available</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="entertainment-card bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20caricature%20artist%20drawing%20wedding%20guests%20at%20a%20reception%2C%20with%20the%20artist%20in%20formal%20attire%20creating%20personalized%20caricatures%20while%20guests%20watch%2C%20in%20a%20beautifully%20decorated%20wedding%20venue&width=400&height=300&seq=10&orientation=landscape"
+                  alt="Caricature Artist"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Caricature Artist
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Talented artist creating fun, personalized caricatures of your
+                  guests as unique favors.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">From $950</span>
+                  <span class="text-green-600 text-sm">Available</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="entertainment-card bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20fireworks%20display%20at%20a%20wedding%20reception%2C%20with%20beautiful%20colorful%20fireworks%20lighting%20up%20the%20night%20sky%20above%20a%20wedding%20venue%2C%20with%20guests%20watching%20in%20awe%2C%20professional%20photography&width=400&height=300&seq=11&orientation=landscape"
+                  alt="Fireworks Display"
+                  class="w-full h-full object-cover object-top"
+                />
+                <div
+                  class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm"
+                >
+                  Premium
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Fireworks Display
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Spectacular custom fireworks show to end your celebration with
+                  an unforgettable finale.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">From $3,500</span>
+                  <span class="text-yellow-600 text-sm"
+                    >Limited Availability</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Photo Gallery -->
+    <section id="gallery" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Our Wedding Gallery
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Browse through our portfolio of beautiful weddings we've had the
+            pleasure of organizing.
+          </p>
+        </div>
+
+        <div class="flex justify-center mb-10">
+          <div class="tab-switcher">
+            <button class="tab-button  bg-fuchsia-700 " data-gallery="all">All</button>
+            <button class="tab-button" data-gallery="ceremony">Ceremony</button>
+            <button class="tab-button" data-gallery="reception">
+              Reception
+            </button>
+            <button class="tab-button" data-gallery="decor">Decor</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="gallery-item overflow-hidden rounded-lg shadow-md"
+            data-category="ceremony"
+          >
+            <div class="relative h-80 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=elegant%20wedding%20ceremony%20in%20a%20beautiful%20venue%20with%20floral%20decorations%2C%20bride%20and%20groom%20exchanging%20vows%2C%20guests%20watching%2C%20professional%20wedding%20photography%20with%20soft%20natural%20lighting&width=400&height=500&seq=12&orientation=portrait"
+                alt="Wedding Ceremony"
+                class="w-full h-full object-cover object-top"
+              />
+              <div
+                class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"
+              >
+                <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">
+                  View Larger
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="gallery-item overflow-hidden rounded-lg shadow-md"
+            data-category="reception"
+          >
+            <div class="relative h-80 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=elegant%20wedding%20reception%20with%20beautifully%20decorated%20tables%2C%20floral%20centerpieces%2C%20candles%2C%20fine%20china%2C%20crystal%20glassware%2C%20and%20ambient%20lighting%2C%20capturing%20the%20atmosphere%20of%20a%20luxury%20wedding%20celebration&width=400&height=500&seq=13&orientation=portrait"
+                alt="Wedding Reception"
+                class="w-full h-full object-cover object-top"
+              />
+              <div
+                class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"
+              >
+                <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">
+                  View Larger
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="gallery-item overflow-hidden rounded-lg shadow-md"
+            data-category="decor"
+          >
+            <div class="relative h-80 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=elegant%20wedding%20decor%20with%20elaborate%20floral%20arrangements%2C%20hanging%20installations%2C%20luxury%20table%20settings%2C%20candles%2C%20and%20sophisticated%20lighting%20design%2C%20showcasing%20high-end%20wedding%20decoration%20details&width=400&height=500&seq=14&orientation=portrait"
+                alt="Wedding Decor"
+                class="w-full h-full object-cover object-top"
+              />
+              <div
+                class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"
+              >
+                <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">
+                  View Larger
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="gallery-item overflow-hidden rounded-lg shadow-md"
+            data-category="ceremony"
+          >
+            <div class="relative h-80 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=elegant%20outdoor%20wedding%20ceremony%20in%20a%20garden%20setting%20with%20floral%20arch%2C%20rows%20of%20white%20chairs%2C%20bride%20walking%20down%20the%20aisle%2C%20professional%20wedding%20photography%20with%20natural%20lighting&width=400&height=500&seq=15&orientation=portrait"
+                alt="Garden Ceremony"
+                class="w-full h-full object-cover object-top"
+              />
+              <div
+                class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"
+              >
+                <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">
+                  View Larger
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="gallery-item overflow-hidden rounded-lg shadow-md"
+            data-category="reception"
+          >
+            <div class="relative h-80 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=elegant%20wedding%20first%20dance%20with%20bride%20and%20groom%20dancing%20under%20beautiful%20lighting%2C%20surrounded%20by%20guests%2C%20in%20a%20luxurious%20reception%20venue%20with%20professional%20wedding%20photography&width=400&height=500&seq=16&orientation=portrait"
+                alt="First Dance"
+                class="w-full h-full object-cover object-top"
+              />
+              <div
+                class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"
+              >
+                <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">
+                  View Larger
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="gallery-item overflow-hidden rounded-lg shadow-md"
+            data-category="decor"
+          >
+            <div class="relative h-80 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=elegant%20wedding%20cake%20display%20with%20multi-tier%20white%20cake%20decorated%20with%20gold%20accents%20and%20fresh%20flowers%2C%20on%20a%20decorated%20table%20with%20candles%20and%20floral%20arrangements%2C%20professional%20wedding%20photography&width=400&height=500&seq=17&orientation=portrait"
+                alt="Wedding Cake"
+                class="w-full h-full object-cover object-top"
+              />
+              <div
+                class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"
+              >
+                <button class=" bg-fuchsia-700 text-white px-4 py-2 rounded-full">
+                  View Larger
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="#"
+            class=" bg-fuchsia-700 text-white px-8 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-black transition-all"
+            >View Full Gallery</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Videos Section -->
+<section class="py-16 bg-white text-center">
+  <div class="max-w-7xl mx-auto px-4">
+
+    <!-- Heading -->
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
+      Some Spectacular Videos
+    </h2>
+    <div class="flex justify-center mb-12">
+      <div class="w-6 h-1 bg-fuchsia-700 text-white rounded-full"></div>
+      <div class="w-2 h-2  rounded-full mx-1"></div>
+      <div class="w-6 h-1 bg-fuchsia-700 text-white rounded-full"></div>
+    </div>
+
+    <!-- Video Thumbnails -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <!-- Video Card 1 -->
+      <div class="relative border border-fuchsia-700  rounded-xl overflow-hidden shadow-md group">
+        <img src="images/video1.jpg" alt="Video 1" class="w-full h-56 object-cover">
+        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 group-hover:bg-opacity-60 transition">
+          <img src="images/play-icon.png" alt="Play" class="w-14 h-14">
+        </div>
+      </div>
+
+      <!-- Video Card 2 -->
+      <div class="relative rounded-xl border border-fuchsia-700  overflow-hidden shadow-md group">
+        <img src="images/video2.jpg" alt="Video 2" class="w-full h-56 object-cover">
+        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 group-hover:bg-opacity-60 transition">
+          <img src="images/play-icon.png" alt="Play" class="w-14 h-14">
+        </div>
+      </div>
+
+      <!-- Video Card 3 -->
+      <div class="relative rounded-xl border border-fuchsia-700  overflow-hidden shadow-md group">
+        <img src="images/video3.jpg" alt="Video 3" class="w-full h-56 object-cover">
+        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 group-hover:bg-opacity-60 transition">
+          <img src="images/play-icon.png" alt="Play" class="w-14 h-14">
+        </div>
+      </div>
+
+      <!-- Video Card 4 -->
+      <div class="relative rounded-xl border border-fuchsia-700  overflow-hidden shadow-md group">
+        <img src="images/video4.jpg" alt="Video 4" class="w-full h-56 object-cover">
+        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 group-hover:bg-opacity-60 transition">
+          <img src="images/play-icon.png" alt="Play" class="w-14 h-14">
+        </div>
+      </div>
+    </div>
+
+    <!-- View More Button -->
+    <div class="mt-12">
+      <button class="bg-fuchsia-700 text-white hover:bg-black transition px-6 py-3 rounded text-lg font-semibold shadow-md">
+        View More
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Contact CTA Section -->
+<section class="bg-fuchsia-700  py-16 text-white">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0">
+
+   <!-- Left Content -->
+<div class="text-center md:text-left">
+  <h2 class="text-3xl md:text-4xl font-bold tracking-wide mb-4 text-white drop-shadow-[0_1px_4px_rgba(255,255,255,0.8)]">
+    kumbhalgarh & ENTERTAINMENTS<br class="hidden md:block"> PVT.LTD.
+  </h2>
+  <p class="mb-4 text-sm md:text-base text-white">We plan your dream Destination Events and Weddings</p>
+  
+  <a href="#contact" class="border border-white text-white px-6 py-2 rounded hover:bg-white hover:text-[#d4af37] transition">
+    Contact Us
+  </a>
+</div>
+
+<!-- Right Contact Box -->
+    <div class="bg-fuchsia-700  bg-opacity-20 border border-black rounded-xl p-8 text-center shadow-md">
+      <h3 class="text-lg font-semibold mb-2">CALL US NOW</h3>
+      <p class="text-md tracking-wide">+91-8506000001</p>
+    </div>
+
+
+
+  </div>
+</section>
+
+
+<!--kumbhalgarh Services Section -->
+<section class="py-16 bg-[#fefaf6] text-center">
+  <div class="max-w-7xl mx-auto px-4">
+    
+    <!-- Heading -->
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">kumbhalgarh events Services</h2>
+    <div class="flex justify-center mb-12">
+      <div class="w-6 h-1 bg-fuchsia-700 rounded-full"></div>
+      <div class="w-2 h-2  rounded-full mx-1"></div>
+      <div class="w-6 h-1 bg-fuchsia-700  rounded-full"></div>
+    </div>
+
+    <!-- Grid of Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      
+      <!-- Card -->
+      <div class="bg-white border border-fuchsia-700 p-6 rounded-xl shadow-sm hover:shadow-md transition">
+        <img src="images/entertainment.png" alt="Entertainment" class="mx-auto h-14 mb-4">
+        <h3 class="text-lg font-semibold text-fuchsia-700 mb-2">Entertainment</h3>
+        <p class="text-sm text-gray-600">An event is one of the strongest and most impactful methods of communication. Including entertainment elevates the experience remarkably.</p>
+        <a href="#" class="text-fuchsia-700 text-sm mt-3 inline-block">Read More &raquo;</a>
+      </div>
+
+      <div class="bg-white border border-fuchsia-700 p-6 rounded-xl shadow-sm hover:shadow-md transition">
+        <img src="images/events.png" alt="Events" class="mx-auto h-14 mb-4">
+        <h3 class="text-lg font-semibold text-fuchsia-700 mb-2">Events</h3>
+        <p class="text-sm text-gray-600">We understand how every event matters to you—whether it's a personal occasion or a professional gathering.</p>
+        <a href="#" class="text-fuchsia-700 text-sm mt-3 inline-block">Read More &raquo;</a>
+      </div>
+
+      <div class="bg-white border border-fuchsia-700 p-6 rounded-xl shadow-sm hover:shadow-md transition">
+        <img src="images/wedding-venues.png" alt="Wedding Venues" class="mx-auto h-14 mb-4">
+        <h3 class="text-lg font-semibold text-fuchsia-700 mb-2">Wedding Venues</h3>
+        <p class="text-sm text-gray-600">A wedding is a cherished, once-in-a-lifetime celebration, and everyone dreams of a magnificent venue for such a special day.</p>
+        <a href="#" class="text-fuchsia-700 text-sm mt-3 inline-block">Read More &raquo;</a>
+      </div>
+
+      <div class="bg-white border border-fuchsia-700 p-6 rounded-xl shadow-sm ho ver:shadow-md transition">
+        <img src="images/hospitality.png" alt="Hospitality" class="mx-auto h-14 mb-4">
+        <h3 class="text-lg font-semibold text-fuchsia-700 mb-2">Hospitality</h3>
+        <p class="text-sm text-gray-600">Coordinating travel and hotel bookings can be stressful during events. We handle it all so you can stay relaxed and focused.</p>
+        <a href="#" class="text-fuchsia-700 text-sm mt-3 inline-block">Read More &raquo;</a>
+      </div>
+
+      <div class="bg-white border border-fuchsia-700 p-6 rounded-xl shadow-sm hover:shadow-md transition">
+        <img src="images/choreographers.png" alt="Choreographers" class="mx-auto h-14 mb-4">
+        <h3 class="text-lg font-semibold text-fuchsia-700 mb-2">Choreographers</h3>
+        <p class="text-sm text-gray-600">kumbhalgarh events & Entertainments stands as a top-tier event company in India, delivering expert choreography solutions.</p>
+        <a href="#" class="text-fuchsia-700 text-sm mt-3 inline-block">Read More &raquo;</a>
+      </div>
+
+      <div class="bg-white border border-fuchsia-700 p-6 rounded-xl shadow-sm hover:shadow-md transition">
+        <img src="images/bollywood-singers.png" alt="Bollywood Singers" class="mx-auto h-14 mb-4">
+        <h3 class="text-lg font-semibold text-fuchsia-700 mb-2">Bollywood Singers</h3>
+        <p class="text-sm text-gray-600">Planning a corporate event or city celebration with Bollywood singers? kumbhalgarh events is your go-to event partner.</p>
+        <a href="#" class="text-fuchsia-700 text-sm mt-3 inline-block">Read More &raquo;</a>
+      </div>
+
+      <div class="bg-white border border-fuchsia-700 p-6 rounded-xl shadow-sm hover:shadow-md transition">
+        <img src="images/international-artists.png" alt="International Artists" class="mx-auto h-14 mb-4">
+        <h3 class="text-lg font-semibold text-fuchsia-700 mb-2">International Artists</h3>
+        <p class="text-sm text-gray-800">With a solid reputation in event planning, kumbhalgarh events & Entertainments brings world-class international artists to your stage.</p>
+        <a href="#" class="text-fuchsia-700 text-sm mt-3 inline-block">Read More &raquo;</a>
+      </div>
+
+      <div class="bg-white border border-fuchsia-700 p-6 rounded-xl shadow-sm hover:shadow-md transition">
+        <img src="images/anchors.png" alt="Anchors" class="mx-auto h-14 mb-4">
+        <h3 class="text-lg font-semibold text-fuchsia-700 mb-2">Anchors</h3>
+        <p class="text-sm text-gray-600">kumbhalgarh events & Entertainments features an energetic team of skilled and lively professionals ready to host your events.</p>
+        <a href="#" class="text-fuchsia-700 text-sm mt-3 inline-block">Read More &raquo;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            What Our Couples Say
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Hear from couples who trusted us with their special day.
+          </p>
+        </div>
+
+        <div class="relative max-w-4xl mx-auto">
+          <div class="testimonial-slider overflow-hidden">
+            <div
+              class="flex transition-transform duration-500"
+              id="testimonialSlider"
+            >
+              <div class="w-full flex-shrink-0 px-4">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                  <div class="flex items-center mb-6">
+                    <img
+                      src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20happy%20bride%20with%20elegant%20hairstyle%20and%20makeup%2C%20smiling%20at%20camera%2C%20neutral%20background%2C%20wedding%20day%20portrait&width=80&height=80&seq=18&orientation=squarish"
+                      alt="Emily & James"
+                      class="w-16 h-16 rounded-full object-cover mr-4"
+                    />
+                    <div>
+                      <h4 class="text-lg font-bold text-gray-800">
+                        Emily & James Thompson
+                      </h4>
+                      <p class="text-gray-600">June 2025</p>
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <div class="flex text-primary">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                    </div>
+                  </div>
+                  <p class="text-gray-700 italic">
+                    "Working with Elegant Events was the best decision we made
+                    for our wedding. Their attention to detail and personalized
+                    approach made our day absolutely perfect. From the stunning
+                    floral arrangements to the seamless coordination, everything
+                    exceeded our expectations. We couldn't have asked for a more
+                    magical day!"
+                  </p>
+                </div>
+              </div>
+
+              <div class="w-full flex-shrink-0 px-4">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                  <div class="flex items-center mb-6">
+                    <img
+                      src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20happy%20couple%2C%20multicultural%20bride%20and%20groom%20smiling%20at%20camera%2C%20neutral%20background%2C%20wedding%20day%20portrait&width=80&height=80&seq=19&orientation=squarish"
+                      alt="Michael & Sophia"
+                      class="w-16 h-16 rounded-full object-cover mr-4"
+                    />
+                    <div>
+                      <h4 class="text-lg font-bold text-gray-800">
+                        Michael & Sophia Rodriguez
+                      </h4>
+                      <p class="text-gray-600">April 2025</p>
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <div class="flex text-primary">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                    </div>
+                  </div>
+                  <p class="text-gray-700 italic">
+                    "We can't thank Elegant Events enough for creating our dream
+                    wedding! Their team handled everything with such
+                    professionalism and creativity. Our guests are still talking
+                    about how beautiful everything was. The entertainment
+                    options they suggested were perfect for our style, and the
+                    planning process was actually enjoyable thanks to their
+                    guidance."
+                  </p>
+                </div>
+              </div>
+
+              <div class="w-full flex-shrink-0 px-4">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                  <div class="flex items-center mb-6">
+                    <img
+                      src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20happy%20couple%2C%20bride%20and%20groom%20in%20wedding%20attire%20smiling%20at%20camera%2C%20neutral%20background%2C%20wedding%20day%20portrait&width=80&height=80&seq=20&orientation=squarish"
+                      alt="David & Rebecca"
+                      class="w-16 h-16 rounded-full object-cover mr-4"
+                    />
+                    <div>
+                      <h4 class="text-lg font-bold text-gray-800">
+                        David & Rebecca Chen
+                      </h4>
+                      <p class="text-gray-600">March 2025</p>
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <div class="flex text-primary">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-half-fill"></i>
+                    </div>
+                  </div>
+                  <p class="text-gray-700 italic">
+                    "From our first meeting, we knew we were in good hands with
+                    Elegant Events. They listened to our vision and brought it
+                    to life even better than we imagined. The venue they
+                    recommended was perfect, and the coordination on the day
+                    meant we could truly relax and enjoy every moment. Their
+                    vendor connections saved us so much time and stress!"
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="absolute top-1/2 -left-4 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center text-gray-800 hover:bg-gray-100 z-10"
+            id="prevTestimonial"
+          >
+            <i class="ri-arrow-left-s-line ri-lg"></i>
+          </button>
+
+          <button
+            class="absolute top-1/2 -right-4 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center text-gray-800 hover:bg-gray-100 z-10"
+            id="nextTestimonial"
+          >
+            <i class="ri-arrow-right-s-line ri-lg"></i>
+          </button>
+        </div>
+
+        <div class="flex justify-center mt-8">
+          <div class="flex space-x-2">
+            <button
+              class="w-3 h-3 rounded-full bg-primary"
+              data-slide="0"
+            ></button>
+            <button
+              class="w-3 h-3 rounded-full bg-gray-300"
+              data-slide="1"
+            ></button>
+            <button
+              class="w-3 h-3 rounded-full bg-gray-300"
+              data-slide="2"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Wedding Planning Tips
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Explore our blog for expert advice and inspiration for your special
+            day.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          <div class="lg:col-span-2">
+            <div
+              class="blog-card bg-white rounded-lg shadow-md overflow-hidden h-full"
+            >
+              <div class="relative h-80 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20wedding%20planning%20scene%20with%20wedding%20planner%20and%20couple%20reviewing%20details%2C%20looking%20at%20design%20elements%2C%20with%20planning%20materials%20spread%20out%20on%20a%20table%2C%20professional%20photography%20with%20soft%20natural%20lighting&width=600&height=400&seq=21&orientation=landscape"
+                  alt="Wedding Planning Guide"
+                  class="w-full h-full object-cover object-top"
+                />
+                <div class="absolute top-4 left-4">
+                  <span
+                    class="bg-primary text-white text-xs px-3 py-1 rounded-full uppercase"
+                    >Featured</span
+                  >
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center text-sm text-gray-500 mb-3">
+                  <span class="flex items-center mr-4">
+                    <i class="ri-calendar-line mr-1"></i>
+                    June 25, 2025
+                  </span>
+                  <span class="flex items-center">
+                    <i class="ri-time-line mr-1"></i>
+                    8 min read
+                  </span>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-3">
+                  The Ultimate Wedding Planning Timeline: Month by Month Guide
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  A comprehensive guide to help you navigate the wedding
+                  planning process from engagement to the big day, with expert
+                  tips and checklists.
+                </p>
+                <a
+                  href="#"
+                  class="text-fuchsia-700 font-medium inline-flex items-center hover:underline"
+                >
+                  Read Article
+                  <i class="ri-arrow-right-line ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 h-full">
+              <div
+                class="blog-card bg-white rounded-lg shadow-md overflow-hidden"
+              >
+                <div class="relative h-48 overflow-hidden">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=elegant%20wedding%20venue%20with%20beautiful%20decoration%2C%20showing%20different%20seating%20arrangements%2C%20floral%20centerpieces%2C%20and%20lighting%20design%2C%20professional%20photography%20with%20soft%20natural%20lighting&width=300&height=200&seq=22&orientation=landscape"
+                    alt="Venue Selection"
+                    class="w-full h-full object-cover object-top"
+                  />
+                  <div class="absolute top-4 left-4">
+                    <span
+                      class="bg-secondary text-gray-800 text-xs px-3 py-1 rounded-full uppercase"
+                      >Venues</span
+                    >
+                  </div>
+                </div>
+                <div class="p-4">
+                  <div class="flex items-center text-xs text-gray-500 mb-2">
+                    <span class="flex items-center mr-3">
+                      <i class="ri-calendar-line mr-1"></i>
+                      June 20, 2025
+                    </span>
+                    <span class="flex items-center">
+                      <i class="ri-time-line mr-1"></i>
+                      5 min read
+                    </span>
+                  </div>
+                  <h3 class="text-lg font-bold text-gray-800 mb-2">
+                    10 Questions to Ask Before Booking Your Wedding Venue
+                  </h3>
+                  <a
+                    href="#"
+                    class="text-fuchsia-700 text-sm font-medium inline-flex items-center hover:underline"
+                  >
+                    Read Article
+                    <i class="ri-arrow-right-line ml-1"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div
+                class="blog-card bg-white rounded-lg shadow-md overflow-hidden"
+              >
+                <div class="relative h-48 overflow-hidden">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=elegant%20wedding%20floral%20arrangements%20with%20beautiful%20bouquets%2C%20centerpieces%2C%20and%20decorative%20elements%2C%20showcasing%20different%20flower%20types%20and%20color%20schemes%2C%20professional%20photography%20with%20soft%20natural%20lighting&width=300&height=200&seq=23&orientation=landscape"
+                    alt="Floral Trends"
+                    class="w-full h-full object-cover object-top"
+                  />
+                  <div class="absolute top-4 left-4">
+                    <span
+                      class="bg-secondary text-gray-800 text-xs px-3 py-1 rounded-full uppercase"
+                      >Decor</span
+                    >
+                  </div>
+                </div>
+                <div class="p-4">
+                  <div class="flex items-center text-xs text-gray-500 mb-2">
+                    <span class="flex items-center mr-3">
+                      <i class="ri-calendar-line mr-1"></i>
+                      June 15, 2025
+                    </span>
+                    <span class="flex items-center">
+                      <i class="ri-time-line mr-1"></i>
+                      4 min read
+                    </span>
+                  </div>
+                  <h3 class="text-lg font-bold text-gray-800 mb-2">
+                    2025 Wedding Floral Trends: What's In and What's Out
+                  </h3>
+                  <a
+                    href="#"
+                    class="text-fuchsia-700 text-sm font-medium inline-flex items-center hover:underline"
+                  >
+                    Read Article
+                    <i class="ri-arrow-right-line ml-1"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div
+                class="blog-card bg-white rounded-lg shadow-md overflow-hidden"
+              >
+                <div class="relative h-48 overflow-hidden">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=elegant%20wedding%20catering%20display%20with%20gourmet%20food%20presentation%2C%20beautifully%20plated%20dishes%2C%20appetizers%2C%20and%20a%20wedding%20cake%2C%20showcasing%20high-end%20culinary%20options%2C%20professional%20food%20photography&width=300&height=200&seq=24&orientation=landscape"
+                    alt="Wedding Catering"
+                    class="w-full h-full object-cover object-top"
+                  />
+                  <div class="absolute top-4 left-4">
+                    <span
+                      class="bg-secondary text-gray-800 text-xs px-3 py-1 rounded-full uppercase"
+                      >Catering</span
+                    >
+                  </div>
+                </div>
+                <div class="p-4">
+                  <div class="flex items-center text-xs text-gray-500 mb-2">
+                    <span class="flex items-center mr-3">
+                      <i class="ri-calendar-line mr-1"></i>
+                      June 10, 2025
+                    </span>
+                    <span class="flex items-center">
+                      <i class="ri-time-line mr-1"></i>
+                      6 min read
+                    </span>
+                  </div>
+                  <h3 class="text-lg font-bold text-gray-800 mb-2">
+                    Innovative Catering Ideas to Impress Your Wedding Guests
+                  </h3>
+                  <a
+                    href="#"
+                    class="text-fuchsia-700 text-sm font-medium inline-flex items-center hover:underline"
+                  >
+                    Read Article
+                    <i class="ri-arrow-right-line ml-1"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div
+                class="blog-card bg-white rounded-lg shadow-md overflow-hidden"
+              >
+                <div class="relative h-48 overflow-hidden">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=elegant%20wedding%20photography%20scene%20with%20photographer%20capturing%20bride%20and%20groom%20in%20beautiful%20setting%2C%20showing%20professional%20equipment%20and%20artistic%20composition%2C%20natural%20lighting&width=300&height=200&seq=25&orientation=landscape"
+                    alt="Wedding Photography"
+                    class="w-full h-full object-cover object-top"
+                  />
+                  <div class="absolute top-4 left-4">
+                    <span
+                      class="bg-secondary text-gray-800 text-xs px-3 py-1 rounded-full uppercase"
+                      >Photography</span
+                    >
+                  </div>
+                </div>
+                <div class="p-4">
+                  <div class="flex items-center text-xs text-gray-500 mb-2">
+                    <span class="flex items-center mr-3">
+                      <i class="ri-calendar-line mr-1"></i>
+                      June 5, 2025
+                    </span>
+                    <span class="flex items-center">
+                      <i class="ri-time-line mr-1"></i>
+                      5 min read
+                    </span>
+                  </div>
+                  <h3 class="text-lg font-bold text-gray-800 mb-2">
+                    How to Choose the Perfect Wedding Photographer for Your
+                    Style
+                  </h3>
+                  <a
+                    href="#"
+                    class="text-fuchsia-700 text-sm font-medium inline-flex items-center hover:underline"
+                  >
+                    Read Article
+                    <i class="ri-arrow-right-line ml-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="#"
+            class=" bg-fuchsia-700 text-white px-8 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-black transition-all"
+            >View All Articles</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Footer -->
+<footer class="bg-gray-100 pt-16 pb-4">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 text-left">
+    
+    <!-- kumbhalgarh events About -->
+    <div>
+      <h2 class="text-xl font-bold text-gray-800 mb-4">kumbhalgarh events & WEDDINGS</h2>
+      <p class="text-gray-600 text-sm leading-relaxed">
+        kumbhalgarh events and Entertainments Pvt Ltd is passionate about crafting charmingly timeless and elegant luxurious weddings and events at stunning venues throughout the world. As the leading wedding designers and event organisers in Delhi and Gurgaon, we are renowned to create authentic experiences worth cherishing for a lifetime.
+      </p>
+    </div>
+
+    <!-- Links -->
+    <div>
+      <h2 class="text-xl font-bold text-gray-800 mb-4">LINKS</h2>
+      <ul class="space-y-2 text-sm text-gray-600">
+        <li><a href="#" class="hover:text-fuchsia-700">Home</a></li>
+        <li><a href="#" class="hover:text-fuchsia-700">About Us</a></li>
+        <li><a href="#" class="hover:text-fuchsia-700">Gallery</a></li>
+        <li><a href="#" class="hover:text-fuchsia-700">Blog</a></li>
+        <li><a href="#" class="hover:text-fuchsia-700">Career With Us</a></li>
+        <li><a href="#" class="hover:text-fuchsia-700">Reach Us</a></li>
+        <li><a href="#" class="hover:text-fuchsia-700">Gurgaon</a></li>
+        <li><a href="#" class="hover:text-fuchsia-700">Privacy & Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Us -->
+    <div>
+      <h2 class="text-xl font-bold text-gray-800 mb-4">CONTACT US</h2>
+      <p class="text-sm text-gray-600 leading-relaxed mb-2">
+        DLF PHASE – 2 L–25/9<br>
+        Near by Privat Hospital Gurugram,<br>
+        Haryana 122002
+      </p>
+      <p class="text-sm text-gray-600 mb-4">Email : info@kumbhalgarh events.in</p>
+
+      <!-- Social Icons -->
+      <div class="flex space-x-3">
+        <a href="#"><i class="ri-facebook-circle-fill text-2xl text-gray-700 hover:text-blue-600"></i></a>
+        <a href="#"><i class="ri-twitter-x-line text-2xl text-gray-700 hover:text-black"></i></a>
+        <a href="#"><i class="ri-pinterest-fill text-2xl text-gray-700 hover:text-red-600"></i></a>
+        <a href="#"><i class="ri-instagram-fill text-2xl text-gray-700 hover:text-pink-500"></i></a>
+        <a href="#"><i class="ri-youtube-fill text-2xl text-gray-700 hover:text-red-500"></i></a>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div>
+      <h2 class="text-xl font-bold text-gray-800 mb-4">MAP LOCATION</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.6766376501537!2d77.079727!3d28.611223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d18c0204c7a7d%3A0xe89b876fa1a8b172!2sV3%20Events%20%26%20Weddings%20-%20Best%20Destination%20Wedding%20Planner!5e0!3m2!1sen!2sin!4v1651498289071!5m2!1sen!2sin"
+        width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- Bottom Strip -->
+  <div class=" bg-fuchsia-700 text-center py-4 mt-10">
+    <p class="text-sm text-white">
+      Copyright© kumbhalgarh events & ENTERTAINMENTS PVT.LTD 2018, All right reserved. |
+      <a href="#" class="underline hover:text-yellow-300">Privacy Policy</a> |
+      Designs & Developed by Digital success
+    </p>
+  </div>
+</footer>
