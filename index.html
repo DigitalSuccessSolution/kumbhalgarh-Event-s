@@ -208,7 +208,7 @@
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
 <!-- Header & Navigation -->
-<header class="header-nav fixed w-full z-50 bg-fuchsia-700" x-data="{ showDropdown: false }">
+<header class="header-nav fixed w-screen z-50 bg-fuchsia-700"  x-data="{ showDropdown: false }">
   <div class="container mx-auto px-4 py-4 flex items-center justify-between">
     
     <!-- Logo -->
@@ -278,32 +278,32 @@
     <a href="#home" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Home</a>
 
     <!-- Services Mobile Dropdown -->
-    <button @click="mobileServicesOpen = !mobileServicesOpen" class="text-gray-800 text-left py-2 font-semibold">
-      Services
-    </button>
+<button @click="mobileServicesOpen = !mobileServicesOpen" class="text-gray-800 text-left py-2 font-semibold">
+  Services
+</button>
 
-    <div x-show="mobileServicesOpen" x-transition class="ml-4 flex flex-col space-y-1">
-      <a href="#wedding-planning" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Planning</a>
-      <a href="#vendor-management" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Vendor Management</a>
-      <a href="#wedding-hospitality" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Hospitality</a>
-      <a href="#wedding-designs" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Designs</a>
-      <a href="#wedding-logistics" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Logistics</a>
-      <a href="#wedding-decor" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Decor</a>
-      <a href="#wedding-photography" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Photography</a>
-      <a href="#wedding-catering" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Catering</a>
-      <a href="#entertainment" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Entertainment</a>
-      <a href="#hotel-booking" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Hotel Booking</a>
-      <a href="#corporate-packages" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Corporate Packages</a>
-      <a href="#travel-packages" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Complete Travel Packages</a>
-      <a href="#our-properties" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Our Properties</a>
-    </div>
+<div x-show="mobileServicesOpen" x-transition class="ml-4 flex flex-col space-y-1">
+  <a href="#wedding-planning" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Planning</a>
+  <a href="#vendor-management" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Vendor Management</a>
+  <a href="#wedding-hospitality" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Hospitality</a>
+  <a href="#wedding-designs" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Designs</a>
+  <a href="#wedding-logistics" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Logistics</a>
+  <a href="#wedding-decor" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Decor</a>
+  <a href="#wedding-photography" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Photography</a>
+  <a href="#wedding-catering" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Catering</a>
+  <a href="#entertainment" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Entertainment</a>
+  <a href="#hotel-booking" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Hotel Booking</a>
+  <a href="#corporate-packages" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Corporate Packages</a>
+  <a href="#travel-packages" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Complete Travel Packages</a>
+  <a href="#our-properties" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Our Properties</a>
+</div>
 
     <a href="#planning" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Planning</a>
     <a href="#gallery" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Gallery</a>
     <a href="#testimonials" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Testimonials</a>
     <a href="#blog" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Blog</a>
 
-    <a href="#contact" class="mobile-link bg-fuchsia-700 text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all text-center">Contact Us</a>
+    <a href="#GetStarted" class="mobile-link bg-fuchsia-700 text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all text-center">Contact Us</a>
   </div>
 </div>
 
@@ -360,7 +360,7 @@
         Let us transform your special day into a magical experience that you and your guests will cherish forever.
       </p>
      <div class="flex flex-col sm:flex-row flex-wrap gap-4 items-center justify-center">
- <a href="#" class="block w-full sm:w-auto text-center bg-fuchsia-700 text-white px-6 py-3 rounded-full">
+ <a href="#GetStarted" class="block w-full sm:w-auto text-center bg-fuchsia-700 text-white px-6 py-3 rounded-full">
   Get Started
 </a>
   <a
@@ -881,7 +881,7 @@
           <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Entertainment Options
           </h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
+          <p class="text-gray-600 max-w-2xl mx-auto ">
             Choose from our curated selection of premium entertainment options
             to create the perfect atmosphere.
           </p>
@@ -1171,161 +1171,103 @@
 
 
 
-    <!-- Photo Gallery -->
-    <section id="gallery" class="py-20 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Our Wedding Gallery
-          </h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
-            Browse through our portfolio of beautiful weddings we've had the
-            pleasure of organizing.
-          </p>
-        </div>
+   <!-- Include AOS CSS in <head> -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-        <div class="flex justify-center mb-10">
-          <div class="tab-switcher">
-            <button class="tab-button px-4 py-2 rounded-full mx-2" data-gallery="all">All</button>
-<button class="tab-button px-4 py-2 rounded-full mx-2" data-gallery="ceremony">Ceremony</button>
-<button class="tab-button px-4 py-2 rounded-full mx-2" data-gallery="reception">Reception</button>
-<button class="tab-button px-4 py-2 rounded-full mx-2" data-gallery="decor">Decor</button>
+<!-- Photo Gallery Section -->
+<section id="gallery" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16" data-aos="fade-down">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        Our Wedding Gallery
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Browse through our portfolio of beautiful weddings we've had the
+        pleasure of organizing.
+      </p>
+    </div>
 
+    <div class="flex justify-center mb-10" data-aos="zoom-in">
+      <div class="tab-switcher">
+        <button class="tab-button px-2 py-2 rounded-full mx-2" data-gallery="all">All</button>
+        <button class="tab-button px-2 py-2 rounded-full mx-2" data-gallery="ceremony">Ceremony</button>
+        <button class="tab-button px-2 py-2 rounded-full mx-2" data-gallery="reception">Reception</button>
+        <button class="tab-button px-2 py-2 rounded-full mx-2" data-gallery="decor">Decor</button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Gallery Item 1 -->
+      <div class="gallery-item overflow-hidden rounded-lg shadow-md" data-category="ceremony" data-aos="fade-up">
+        <div class="relative h-80 overflow-hidden">
+          <img src="images/g-1.png" alt="Wedding Ceremony" class="w-full h-full object-cover object-top" />
+          <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+            <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">View Larger</button>
           </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div
-            class="gallery-item overflow-hidden rounded-lg shadow-md"
-            data-category="ceremony"
-          >
-            <div class="relative h-80 overflow-hidden">
-              <img
-                src="https://readdy.ai/api/search-image?query=elegant%20wedding%20ceremony%20in%20a%20beautiful%20venue%20with%20floral%20decorations%2C%20bride%20and%20groom%20exchanging%20vows%2C%20guests%20watching%2C%20professional%20wedding%20photography%20with%20soft%20natural%20lighting&width=400&height=500&seq=12&orientation=portrait"
-                alt="Wedding Ceremony"
-                class="w-full h-full object-cover object-top"
-              />
-              <div
-                class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"
-              >
-                <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">
-                  View Larger
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="gallery-item overflow-hidden rounded-lg shadow-md"
-            data-category="reception"
-          >
-            <div class="relative h-80 overflow-hidden">
-              <img
-                src="https://readdy.ai/api/search-image?query=elegant%20wedding%20reception%20with%20beautifully%20decorated%20tables%2C%20floral%20centerpieces%2C%20candles%2C%20fine%20china%2C%20crystal%20glassware%2C%20and%20ambient%20lighting%2C%20capturing%20the%20atmosphere%20of%20a%20luxury%20wedding%20celebration&width=400&height=500&seq=13&orientation=portrait"
-                alt="Wedding Reception"
-                class="w-full h-full object-cover object-top"
-              />
-              <div
-                class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"
-              >
-                <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">
-                  View Larger
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="gallery-item overflow-hidden rounded-lg shadow-md"
-            data-category="decor"
-          >
-            <div class="relative h-80 overflow-hidden">
-              <img
-                src="https://readdy.ai/api/search-image?query=elegant%20wedding%20decor%20with%20elaborate%20floral%20arrangements%2C%20hanging%20installations%2C%20luxury%20table%20settings%2C%20candles%2C%20and%20sophisticated%20lighting%20design%2C%20showcasing%20high-end%20wedding%20decoration%20details&width=400&height=500&seq=14&orientation=portrait"
-                alt="Wedding Decor"
-                class="w-full h-full object-cover object-top"
-              />
-              <div
-                class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"
-              >
-                <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">
-                  View Larger
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="gallery-item overflow-hidden rounded-lg shadow-md"
-            data-category="ceremony"
-          >
-            <div class="relative h-80 overflow-hidden">
-              <img
-                src="https://readdy.ai/api/search-image?query=elegant%20outdoor%20wedding%20ceremony%20in%20a%20garden%20setting%20with%20floral%20arch%2C%20rows%20of%20white%20chairs%2C%20bride%20walking%20down%20the%20aisle%2C%20professional%20wedding%20photography%20with%20natural%20lighting&width=400&height=500&seq=15&orientation=portrait"
-                alt="Garden Ceremony"
-                class="w-full h-full object-cover object-top"
-              />
-              <div
-                class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"
-              >
-                <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">
-                  View Larger
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="gallery-item overflow-hidden rounded-lg shadow-md"
-            data-category="reception"
-          >
-            <div class="relative h-80 overflow-hidden">
-              <img
-                src="https://readdy.ai/api/search-image?query=elegant%20wedding%20first%20dance%20with%20bride%20and%20groom%20dancing%20under%20beautiful%20lighting%2C%20surrounded%20by%20guests%2C%20in%20a%20luxurious%20reception%20venue%20with%20professional%20wedding%20photography&width=400&height=500&seq=16&orientation=portrait"
-                alt="First Dance"
-                class="w-full h-full object-cover object-top"
-              />
-              <div
-                class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"
-              >
-                <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">
-                  View Larger
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="gallery-item overflow-hidden rounded-lg shadow-md"
-            data-category="decor"
-          >
-            <div class="relative h-80 overflow-hidden">
-              <img
-                src="https://readdy.ai/api/search-image?query=elegant%20wedding%20cake%20display%20with%20multi-tier%20white%20cake%20decorated%20with%20gold%20accents%20and%20fresh%20flowers%2C%20on%20a%20decorated%20table%20with%20candles%20and%20floral%20arrangements%2C%20professional%20wedding%20photography&width=400&height=500&seq=17&orientation=portrait"
-                alt="Wedding Cake"
-                class="w-full h-full object-cover object-top"
-              />
-              <div
-                class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"
-              >
-                <button class=" bg-fuchsia-700 text-white px-4 py-2 rounded-full">
-                  View Larger
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center mt-12">
-          <a
-            href="#"
-            class=" bg-fuchsia-700 text-white px-8 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-black transition-all"
-            >View Full Gallery</a
-          >
         </div>
       </div>
-    </section>
-    <script>
+
+      <!-- Gallery Item 2 -->
+      <div class="gallery-item overflow-hidden rounded-lg shadow-md" data-category="reception" data-aos="fade-up">
+        <div class="relative h-80 overflow-hidden">
+          <img src="images/g-2.png" alt="Wedding Reception" class="w-full h-full object-cover object-top" />
+          <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+            <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">View Larger</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Item 3 -->
+      <div class="gallery-item overflow-hidden rounded-lg shadow-md" data-category="decor" data-aos="fade-up">
+        <div class="relative h-80 overflow-hidden">
+          <img src="images/g-3.png" alt="Wedding Decor" class="w-full h-full object-cover object-top" />
+          <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+            <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">View Larger</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Item 4 -->
+      <div class="gallery-item overflow-hidden rounded-lg shadow-md" data-category="ceremony" data-aos="fade-up">
+        <div class="relative h-80 overflow-hidden">
+          <img src="images/g-4.png" alt="Garden Ceremony" class="w-full h-full object-cover object-top" />
+          <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+            <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">View Larger</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Item 5 -->
+      <div class="gallery-item overflow-hidden rounded-lg shadow-md" data-category="reception" data-aos="fade-up">
+        <div class="relative h-80 overflow-hidden">
+          <img src="images/g-5.png" alt="First Dance" class="w-full h-full object-cover object-top" />
+          <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+            <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">View Larger</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Item 6 -->
+      <div class="gallery-item overflow-hidden rounded-lg shadow-md" data-category="decor" data-aos="fade-up">
+        <div class="relative h-80 overflow-hidden">
+          <img src="images/g-6.png" alt="Wedding Cake" class="w-full h-full object-cover object-top" />
+          <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+            <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">View Larger</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-12" data-aos="zoom-in">
+      <a href="#" class="bg-fuchsia-700 text-white px-8 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-black transition-all">
+        View Full Gallery
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Filtering Script -->
+<script>
   document.addEventListener("DOMContentLoaded", function () {
     const tabButtons = document.querySelectorAll(".tab-button");
     const galleryItems = document.querySelectorAll(".gallery-item");
@@ -1334,29 +1276,29 @@
       button.addEventListener("click", () => {
         const category = button.getAttribute("data-gallery");
 
-        // Remove active class from all buttons
         tabButtons.forEach((btn) => btn.classList.remove("bg-fuchsia-700", "text-white"));
-        
-        // Add active class to the clicked button
         button.classList.add("bg-fuchsia-700", "text-white");
 
-        // Show/hide gallery items
         galleryItems.forEach((item) => {
           const itemCategory = item.getAttribute("data-category");
-
-          if (category === "all" || itemCategory === category) {
-            item.style.display = "block";
-          } else {
-            item.style.display = "none";
-          }
+          item.style.display = (category === "all" || itemCategory === category) ? "block" : "none";
         });
       });
     });
 
-    // Set default active tab to "All"
     document.querySelector(".tab-button[data-gallery='all']").click();
   });
 </script>
+
+<!-- Include AOS JS before </body> -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+</script>
+
 
 
     <!-- Videos Section -->
@@ -1478,7 +1420,7 @@
   <div class="max-w-7xl mx-auto px-4">
     
     <!-- Heading -->
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">kumbhalgarh events Services</h2>
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2 pt-20" id="services">kumbhalgarh events Services</h2>
     <div class="flex justify-center mb-12">
       <div class="w-6 h-1 bg-fuchsia-700 rounded-full"></div>
       <div class="w-2 h-2 rounded-full mx-1"></div>
@@ -1949,9 +1891,9 @@
     </section>
 
     <!-- from -->
-        <section class="py-16 bg-white" id="contact">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-2">CONTACT DETAILS</h2>
+        <section class="py-16 bg-white" id="contact pt-16">
+  <div class="container mx-auto px-4" id="GetStarted">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-2 pt-20">CONTACT DETAILS</h2>
     <p class="text-center text-gray-600 mb-12">"We will be glad to become a part of your unique wedding"</p>
 
     <div class="grid md:grid-cols-2 gap-8">
@@ -2018,7 +1960,7 @@
     <!-- kumbhalgarh events About -->
     <div>
       <h2 class="text-xl font-bold text-gray-800 mb-4">kumbhalgarh events & WEDDINGS</h2>
-      <p class="text-gray-600 text-sm leading-relaxed">
+      <p class="text-gray-600 text-sm leading-relaxed text-justify">
         kumbhalgarh events and Entertainments Pvt Ltd is passionate about crafting charmingly timeless and elegant luxurious weddings and events at stunning venues throughout the world. As the leading wedding designers and event organisers in Delhi and Gurgaon, we are renowned to create authentic experiences worth cherishing for a lifetime.
       </p>
     </div>
@@ -2069,7 +2011,7 @@
 
   <!-- Bottom Strip -->
   <div class=" bg-fuchsia-700 text-center py-4 mt-10">
-    <p class="text-sm text-white">
+    <p class="text-sm text-white ">
       Copyright© kumbhalgarh events & ENTERTAINMENTS PVT.LTD 2018, All right reserved. |
       <a href="#" class="underline hover:text-yellow-300">Privacy Policy</a> |
       Designs & Developed by Digital success
