@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Elegant Events - Wedding Planning & Services</title>
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    
+    <!-- animation -->
+     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+     <!-- animation close -->
     <script>
       tailwind.config = {
         theme: {
@@ -519,126 +525,147 @@
 
 
     <!-- Wedding Planning Section -->
-    <section id="planning" class="py-20 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col lg:flex-row items-center gap-12">
-          <div class="w-full lg:w-1/2">
-            <img
-              src="https://readdy.ai/api/search-image?query=elegant%20wedding%20planning%20scene%20with%20a%20bride%20and%20wedding%20planner%20reviewing%20details%2C%20looking%20at%20fabric%20swatches%2C%20flower%20samples%2C%20and%20venue%20photos.%20The%20scene%20should%20include%20a%20planning%20binder%2C%20calendar%2C%20and%20design%20elements.%20Professional%20photography%20style%20with%20soft%20natural%20lighting&width=600&height=700&seq=2&orientation=portrait"
-              alt="Wedding Planning Process"
-              class="rounded-lg shadow-xl w-full h-auto object-cover"
-            />
+<section id="planning" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col lg:flex-row items-center gap-12">
+      <!-- Image Section -->
+      <div class="w-full lg:w-1/2">
+        <img
+          src="https://readdy.ai/api/search-image?query=elegant%20wedding%20planning%20scene%20with%20a%20bride%20and%20wedding%20planner%20reviewing%20details%2C%20looking%20at%20fabric%20swatches%2C%20flower%20samples%2C%20and%20venue%20photos.%20The%20scene%20should%20include%20a%20planning%20binder%2C%20calendar%2C%20and%20design%20elements.%20Professional%20photography%20style%20with%20soft%20natural%20lighting&width=600&height=700&seq=2&orientation=portrait"
+          alt="Wedding Planning Process"
+          class="rounded-lg shadow-xl w-full h-auto object-cover"
+        />
+      </div>
+
+      <!-- Text Section -->
+      <div class="w-full lg:w-1/2">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+          Your Wedding Journey
+        </h2>
+        <p class="text-gray-600 mb-8">
+          We guide you through every step of the planning process, ensuring
+          a stress-free experience from engagement to your special day.
+        </p>
+
+        <div class="space-y-6">
+          <!-- Step 1 -->
+          <div class="flex">
+            <div
+              class="flex-shrink-0 w-12 h-12 bg-fuchsia-700 rounded-full flex items-center justify-center text-white"
+              data-aos="zoom-in"
+              data-aos-delay="0"
+            >
+              1
+            </div>
+            <div class="ml-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Initial Consultation
+              </h3>
+              <p class="text-gray-600">
+                We'll discuss your vision, preferences, and budget to create
+                a personalized wedding plan.
+              </p>
+            </div>
           </div>
 
-          <div class="w-full lg:w-1/2">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              Your Wedding Journey
-            </h2>
-            <p class="text-gray-600 mb-8">
-              We guide you through every step of the planning process, ensuring
-              a stress-free experience from engagement to your special day.
-            </p>
-
-            <div class="space-y-6">
-              <div class="flex">
-                <div
-                  class="flex-shrink-0 w-12 h-12 bg-fuchsia-700 rounded-full flex items-center justify-center text-white"
-                >
-                  1
-                </div>
-                <div class="ml-6">
-                  <h3 class="text-xl font-bold text-gray-800 mb-2">
-                    Initial Consultation
-                  </h3>
-                  <p class="text-gray-600">
-                    We'll discuss your vision, preferences, and budget to create
-                    a personalized wedding plan.
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex">
-                <div
-                  class="flex-shrink-0 w-12 h-12 bg-fuchsia-700 rounded-full flex items-center justify-center text-white"
-                >
-                  2
-                </div>
-                <div class="ml-6">
-                  <h3 class="text-xl font-bold text-gray-800 mb-2">
-                    Venue & Vendor Selection
-                  </h3>
-                  <p class="text-gray-600">
-                    We'll help you choose the perfect venue and trusted vendors
-                    that match your style.
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex">
-                <div
-                  class="flex-shrink-0 w-12 h-12 bg-fuchsia-700 rounded-full flex items-center justify-center text-white"
-                >
-                  3
-                </div>
-                <div class="ml-6">
-                  <h3 class="text-xl font-bold text-gray-800 mb-2">
-                    Design & Coordination
-                  </h3>
-                  <p class="text-gray-600">
-                    We'll handle all the details, from theme design to day-of
-                    coordination.
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex">
-                <div
-                  class="flex-shrink-0 w-12 h-12 bg-fuchsia-700 rounded-full flex items-center justify-center text-white"
-                >
-                  4
-                </div>
-                <div class="ml-6">
-                  <h3 class="text-xl font-bold text-gray-800 mb-2">
-                    Your Perfect Day
-                  </h3>
-                  <p class="text-gray-600">
-                    Relax and enjoy your special day while we ensure everything
-                    runs smoothly.
-                  </p>
-                </div>
-              </div>
+          <!-- Step 2 -->
+          <div class="flex">
+            <div
+              class="flex-shrink-0 w-12 h-12 bg-fuchsia-700 rounded-full flex items-center justify-center text-white"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
+              2
             </div>
+            <div class="ml-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Venue & Vendor Selection
+              </h3>
+              <p class="text-gray-600">
+                We'll help you choose the perfect venue and trusted vendors
+                that match your style.
+              </p>
+            </div>
+          </div>
 
-            <div class="mt-10">
-              <h4 class="text-lg font-bold text-gray-800 mb-4">
-                Wedding Planning Checklist
-              </h4>
-              <div class="space-y-3">
-                <label class="flex items-center space-x-2">
-  <input type="checkbox" checked class="w-5 h-5 border-fuchsia-700 accent-fuchsia-700 rounded" />
-  <span class="text-gray-700">Choose your wedding date</span>
-</label>
+          <!-- Step 3 -->
+          <div class="flex">
+            <div
+              class="flex-shrink-0 w-12 h-12 bg-fuchsia-700 rounded-full flex items-center justify-center text-white"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            >
+              3
+            </div>
+            <div class="ml-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Design & Coordination
+              </h3>
+              <p class="text-gray-600">
+                We'll handle all the details, from theme design to day-of
+                coordination.
+              </p>
+            </div>
+          </div>
 
-                <label class="flex items-center space-x-2">
-  <input type="checkbox" checked class="w-5 h-5 border-fuchsia-700 accent-fuchsia-700 rounded" />
-  <span class="text-gray-700">Choose your wedding date</span>
-</label>
-
-               <label class="flex items-center space-x-2">
-  <input type="checkbox" checked class="w-5 h-5 border-fuchsia-700 accent-fuchsia-700 rounded" />
-  <span class="text-gray-700">Choose your wedding date</span>
-</label>
-
-               <label class="flex items-center space-x-2">
-  <input type="checkbox" checked class="w-5 h-5 border-fuchsia-700 accent-fuchsia-700 rounded" />
-  <span class="text-gray-700">Choose your wedding date</span>
-</label>
-              </div>
+          <!-- Step 4 -->
+          <div class="flex">
+            <div
+              class="flex-shrink-0 w-12 h-12 bg-fuchsia-700 rounded-full flex items-center justify-center text-white"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+            >
+              4
+            </div>
+            <div class="ml-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Your Perfect Day
+              </h3>
+              <p class="text-gray-600">
+                Relax and enjoy your special day while we ensure everything
+                runs smoothly.
+              </p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+
+      <!-- Checklist -->
+<div class="mt-10">
+  <h4 class="text-lg font-bold text-gray-800 mb-4">
+    Wedding Planning Checklist
+  </h4>
+  <div class="space-y-3">
+    <label class="flex items-center space-x-2" data-aos="zoom-in" data-aos-delay="0">
+      <input type="checkbox" checked class="w-5 h-5 border-fuchsia-700 accent-fuchsia-700 rounded" />
+      <span class="text-gray-700">Choose your wedding date</span>
+    </label>
+
+    <label class="flex items-center space-x-2" data-aos="zoom-in" data-aos-delay="100">
+      <input type="checkbox" checked class="w-5 h-5 border-fuchsia-700 accent-fuchsia-700 rounded" />
+      <span class="text-gray-700">Set your budget</span>
+    </label>
+
+    <label class="flex items-center space-x-2" data-aos="zoom-in" data-aos-delay="200">
+      <input type="checkbox" checked class="w-5 h-5 border-fuchsia-700 accent-fuchsia-700 rounded" />
+      <span class="text-gray-700">Book venue & vendors</span>
+    </label>
+
+    <label class="flex items-center space-x-2" data-aos="zoom-in" data-aos-delay="300">
+      <input type="checkbox" checked class="w-5 h-5 border-fuchsia-700 accent-fuchsia-700 rounded" />
+      <span class="text-gray-700">Send invitations</span>
+    </label>
+  </div>
+</div>
+
+     
+</section>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true,
+  });
+</script>
 
    <section class="bg-white py-16">
   <div class="max-w-6xl mx-auto px-4 text-center">
@@ -1184,39 +1211,67 @@
     </div>
 
     <!-- Video Thumbnails -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-      <!-- Video Card 1 -->
-      <div class="relative border border-fuchsia-700  rounded-xl overflow-hidden shadow-md group">
-        <img src="images/video1.jpg" alt="Video 1" class="w-full h-56 object-cover">
-        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 group-hover:bg-opacity-60 transition">
-          <img src="images/play-icon.png" alt="Play" class="w-14 h-14">
-        </div>
-      </div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
 
-      <!-- Video Card 2 -->
-      <div class="relative rounded-xl border border-fuchsia-700  overflow-hidden shadow-md group">
-        <img src="images/video2.jpg" alt="Video 2" class="w-full h-56 object-cover">
-        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 group-hover:bg-opacity-60 transition">
-          <img src="images/play-icon.png" alt="Play" class="w-14 h-14">
-        </div>
-      </div>
+  <!-- Video Card 1 -->
+  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-md">
+    <video
+      class="w-full h-56 object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="video's/WhatsApp Video 2025-06-30 at 12.55.56_8f7234e6.mp4"
+    >
+      <source src="video's/WhatsApp Video 2025-06-30 at 12.55.56_8f7234e6.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
-      <!-- Video Card 3 -->
-      <div class="relative rounded-xl border border-fuchsia-700  overflow-hidden shadow-md group">
-        <img src="images/video3.jpg" alt="Video 3" class="w-full h-56 object-cover">
-        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 group-hover:bg-opacity-60 transition">
-          <img src="images/play-icon.png" alt="Play" class="w-14 h-14">
-        </div>
-      </div>
+  <!-- Video Card 2 -->
+  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-md">
+    <video
+      class="w-full h-56 object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="images/video2.jpg"
+    >
+      <source src="video's/WhatsApp Video 2025-06-30 at 12.55.57_550cae35.mp4" type="video/mp4" />
+    </video>
+  </div>
 
-      <!-- Video Card 4 -->
-      <div class="relative rounded-xl border border-fuchsia-700  overflow-hidden shadow-md group">
-        <img src="images/video4.jpg" alt="Video 4" class="w-full h-56 object-cover">
-        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 group-hover:bg-opacity-60 transition">
-          <img src="images/play-icon.png" alt="Play" class="w-14 h-14">
-        </div>
-      </div>
-    </div>
+  <!-- Video Card 3 -->
+  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-md">
+    <video
+      class="w-full h-56 object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="images/video3.jpg"
+    >
+      <source src="video's/WhatsApp Video 2025-06-30 at 12.55.57_6489c5c4.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Video Card 4 -->
+  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-md">
+    <video
+      class="w-full h-56 object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="images/video4.jpg"
+    >
+      <source src="video's/WhatsApp Video 2025-06-30 at 12.55.58_e334b874.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+</div>
+
 
     <!-- View More Button -->
     <div class="mt-12">
