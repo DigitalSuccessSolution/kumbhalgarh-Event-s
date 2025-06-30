@@ -190,108 +190,76 @@
   </head>
   <body class="bg-white">
     <!-- Header & Navigation -->
-    <header class="header-nav fixed w-full z-50 bg-fuchsia-700">
-      <div
-        class="container mx-auto px-4 py-4 flex items-center justify-between"
-      >
-        <div class="logo text-2xl font-['Pacifico'] text-primary">kumbhalgarh Event's</div>
+<header class="header-nav fixed w-full z-50 bg-fuchsia-700">
+  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+    
+    <!-- Logo Image -->
+   <div class="logo">
+      <a href="#">
+        <img src="images/logo.png" 
+             alt="Kumbhalgarh Event's Logo" 
+             class="max-h-14 scale-128 object-contain"
+        >
+      </a>
+    </div>
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex items-center space-x-8">
+      <a href="#home" class="text-white hover:text-opacity-75 transition-colors">Home</a>
+      <a href="#services" class="text-white hover:text-opacity-75 transition-colors">Services</a>
+      <a href="#planning" class="text-white hover:text-opacity-75 transition-colors">Planning</a>
+      <a href="#gallery" class="text-white hover:text-opacity-75 transition-colors">Gallery</a>
+      <a href="#testimonials" class="text-white hover:text-opacity-75 transition-colors">Testimonials</a>
+      <a href="#blog" class="text-white hover:text-opacity-75 transition-colors">Blog</a>
+    </nav>
 
-        <nav class="hidden md:flex items-center space-x-8">
-          <a
-            href="#home"
-            class="text-white hover:text-opacity-75 transition-colors"
-            >Home</a
-          >
-          <a
-            href="#services"
-            class="text-white hover:text-opacity-75 transition-colors"
-            >Services</a
-          >
-          <a
-            href="#planning"
-            class="text-white hover:text-opacity-75 transition-colors"
-            >Planning</a
-          >
-          <a
-            href="#gallery"
-            class="text-white hover:text-opacity-75 transition-colors"
-            >Gallery</a
-          >
-          <a
-            href="#testimonials"
-            class="text-white hover:text-opacity-75 transition-colors"
-            >Testimonials</a
-          >
-          <a
-            href="#blog"
-            class="text-white hover:text-opacity-75 transition-colors"
-            >Blog</a
-          >
-        </nav>
+    <!-- Contact Button + Hamburger Icon -->
+    <div class="flex items-center">
+      <a href="#contact" class="hidden md:block bg-white text-fuchsia-700 px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">Contact Us</a>
+      <button id="mobileMenuButton" class="md:hidden w-10 h-10 flex items-center justify-center text-white">
+        <!-- Hamburger Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
 
-        <div class="flex items-center">
-          <a
-            href="#contact"
-            class="hidden md:block bg-white  text-fuchsia-700 px-6 py-2 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all"
-            >Contact Us</a
-          >
-          <button
-            class="md:hidden w-10 h-10 flex items-center justify-center text-white"
-            id="mobileMenuButton"
-          >
-            <i class="ri-menu-line ri-lg"></i>
-          </button>
-        </div>
-      </div>
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full z-40">
+    <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+      <a href="#home" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Home</a>
+      <a href="#services" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Services</a>
+      <a href="#planning" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Planning</a>
+      <a href="#gallery" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Gallery</a>
+      <a href="#testimonials" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Testimonials</a>
+      <a href="#blog" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Blog</a>
+      <a href="#contact" class="mobile-link bg-fuchsia-700 text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all text-center">Contact Us</a>
+    </div>
+  </div>
+</header>
 
-      <!-- Mobile Menu -->
-      <div
-        id="mobileMenu"
-        class="hidden md:hidden bg-white shadow-lg absolute w-full"
-      >
-        <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
-          <a
-            href="#home"
-            class="text-gray-800 hover:text-primary py-2 transition-colors"
-            >Home</a
-          >
-          <a
-            href="#services"
-            class="text-gray-800 hover:text-primary py-2 transition-colors"
-            >Services</a
-          >
-          <a
-            href="#planning"
-            class="text-gray-800 hover:text-primary py-2 transition-colors"
-            >Planning</a
-          >
-          <a
-            href="#gallery"
-            class="text-gray-800 hover:text-primary py-2 transition-colors"
-            >Gallery</a
-          >
-          <a
-            href="#testimonials"
-            class="text-gray-800 hover:text-primary py-2 transition-colors"
-            >Testimonials</a
-          >
-          <a
-            href="#blog"
-            class="text-gray-800 hover:text-primary py-2 transition-colors"
-            >Blog</a
-          >
-          <a
-            href="#contact"
-            class="bg-fuchsia-700 text-white px-6 py-2 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all inline-block text-center"
-            >Contact Us</a
-          >
-        </div>
-      </div>
-    </header>
+<!-- Toggle Script -->
+<script>
+  const mobileMenuButton = document.getElementById('mobileMenuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  // Toggle on button click
+  mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // Close menu when any link is clicked
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
+  });
+</script>
+
 
   <!-- Alpine.js CDN (add in <head> if not already added) -->
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-
 <!-- Hero Section -->
 <section
   id="home"
@@ -403,13 +371,13 @@
       </div>
 
      <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
-        <img src="images/color-icon/brand.png" alt="Brand" class="mx-auto mb-4 w-[60px]">
+        <img src="images/s-3.png" alt="Brand" class="mx-auto mb-4 w-[60px]">
         <h3 class="text-lg text-fuchsia-700  font-semibold mb-2">Brand Promotion</h3>
         <p class="text-sm text-gray-600">Looking for a professional event management company for brand promotions? kumbhalgarh events is your ideal partner to handle these tasks effectively. Our skilled team ensures quality service delivery.</p>
       </div>
 
      <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
-        <img src="images/color-icon/meeting.png" alt="MICE" class="mx-auto mb-4 w-[60px]">
+        <img src="images/s-4.png" alt="MICE" class="mx-auto mb-4 w-[60px]">
         <h3 class="text-lg text-fuchsia-700  font-semibold mb-2">MICE</h3>
         <p class="text-sm text-gray-600">kumbhalgarh events is a leading name in managing Meetings, Incentives, Conferences & Exhibitions (MICE) in Delhi NCR. Reach out to us today for flawless MICE services tailored to your business.</p>
       </div>
@@ -418,25 +386,25 @@
     <!-- Row 2 -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-12">
      <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
-        <img src="images/color-icon/management.png" alt="Exhibition" class="mx-auto mb-4 w-[60px]">
+        <img src="images/s-5.png" alt="Exhibition" class="mx-auto mb-4 w-[60px]">
         <h3 class="text-lg text-fuchsia-700  font-semibold mb-2">Exhibition Management</h3>
         <p class="text-sm text-gray-600">Attract and engage your target audience with well-executed exhibitions by kumbhalgarh events. We help boost your business intelligently and efficiently with our expert services.</p>
       </div>
 
       <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
-        <img src="images/color-icon/artist.png" alt="Bollywood Artists" class="mx-auto mb-4 w-[60px]">
+        <img src="images/s-6.png" alt="Bollywood Artists" class="mx-auto mb-4 w-[60px]">
         <h3 class="text-lg text-fuchsia-700  font-semibold mb-2">Bollywood Artists</h3>
         <p class="text-sm text-gray-600">kumbhalgarh is a trusted company for organising events with Bollywood celebrities. We collaborate with a wide range of stars available for private and exclusive occasions.</p>
       </div>
 
       <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
-        <img src="images/color-icon/feshion.png" alt="Fashion Shows" class="mx-auto mb-4 w-[60px]">
+        <img src="images/s-7.png" alt="Fashion Shows" class="mx-auto mb-4 w-[60px]">
         <h3 class="text-lg text-fuchsia-700  font-semibold mb-2">Fashion Shows</h3>
         <p class="text-sm text-gray-600">Our dynamic team of professionals and fresh talent delivers outstanding fashion show experiences. For best-in-class fashion show organisation, get in touch with us today.</p>
       </div>
 
       <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
-        <img src="images/color-icon/vir.png" alt="Virtual Shows" class="mx-auto mb-4 w-[60px]">
+        <img src="images/s-8.png" alt="Virtual Shows" class="mx-auto mb-4 w-[60px]">
         <h3 class="text-lg text-fuchsia-700 font-semibold mb-2">Virtual Shows</h3>
         <p class="text-sm text-gray-600">Overcome global limitations and continue expanding your reach. We help you promote your services or products globally with professional virtual event solutions.</p>
       </div>
@@ -583,32 +551,32 @@
       <div id="cardSlider" class="flex transition-transform duration-700 ease-in-out w-max">
         <!-- 6 Cards -->
         <div class="w-[300px] flex-shrink-0 mx-2 bg-white border border-fuchsia-700 rounded-xl shadow-md p-4">
-          <img src="images/wedding.jpg" class="h-40 w-full object-cover rounded" />
+          <img src="images/s2-1.png" class="h-40 w-full object-cover rounded" />
           <h3 class="text-lg font-semibold mt-4 text-fuchsia-700">Luxury Wedding</h3>
           <p class="text-sm text-gray-600">We create luxury wedding experiences in NCR.</p>
         </div>
         <div class="w-[300px] flex-shrink-0 mx-2 bg-white border border-fuchsia-700 rounded-xl shadow-md p-4">
-          <img src="images/show.jpg" class="h-40 w-full object-cover rounded" />
+          <img src="images/s2-2.png" class="h-40 w-full object-cover rounded" />
           <h3 class="text-lg font-semibold mt-4 text-fuchsia-700">Reality Shows</h3>
           <p class="text-sm text-gray-600">Top performers to elevate your events.</p>
         </div>
         <div class="w-[300px] flex-shrink-0 mx-2 bg-white border border-fuchsia-700 rounded-xl shadow-md p-4">
-          <img src="images/celebrity.jpg" class="h-40 w-full object-cover rounded" />
+          <img src="images/s2-3.png" class="h-40 w-full object-cover rounded" />
           <h3 class="text-lg font-semibold mt-4 text-fuchsia-700">Celebrity Management</h3>
           <p class="text-sm text-gray-600">We manage top-tier talent across India.</p>
         </div>
         <div class="w-[300px] flex-shrink-0 mx-2 bg-white border border-fuchsia-700 rounded-xl shadow-md p-4">
-          <img src="images/decor.jpg" class="h-40 w-full object-cover rounded" />
+          <img src="images/s2-4.png" class="h-40 w-full object-cover rounded" />
           <h3 class="text-lg font-semibold mt-4 text-fuchsia-700">Decor Services</h3>
           <p class="text-sm text-gray-600">Beautiful event decoration and florals.</p>
         </div>
         <div class="w-[300px] flex-shrink-0 mx-2 bg-white border border-fuchsia-700 rounded-xl shadow-md p-4">
-          <img src="images/dj.jpg" class="h-40 w-full object-cover rounded" />
+          <img src="images/s2-5.png" class="h-40 w-full object-cover rounded" />
           <h3 class="text-lg font-semibold mt-4 text-fuchsia-700">DJ & Sound</h3>
           <p class="text-sm text-gray-600">Rock your event with DJ and lights.</p>
         </div>
         <div class="w-[300px] flex-shrink-0 mx-2 bg-white border border-fuchsia-700 rounded-xl shadow-md p-4">
-          <img src="images/video1.jpg" class="h-40 w-full object-cover rounded" />
+          <img src="images/s2-6.png" class="h-40 w-full object-cover rounded" />
           <h3 class="text-lg font-semibold mt-4 text-fuchsia-700">Video Production</h3>
           <p class="text-sm text-gray-600">Capture your day professionally.</p>
         </div>
@@ -1659,6 +1627,69 @@
         </div>
       </div>
     </section>
+
+    <!-- from -->
+        <section class="py-16 bg-white" id="contact">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-2">CONTACT DETAILS</h2>
+    <p class="text-center text-gray-600 mb-12">"We will be glad to become a part of your unique wedding"</p>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Left Contact Info -->
+      <div class="space-y-6">
+        <div class="bg-fuchsia-700 p-6 text-white flex items-center space-x-4">
+          <i class="ri-mail-line text-2xl"></i>
+          <span>iinfo@kumbhalgarhevents.in</span>
+        </div>
+        <div class="bg-fuchsia-700 p-6 text-white flex items-start space-x-4">
+          <i class="ri-phone-line text-2xl mt-1"></i>
+          <div>
+            <p>+91-9810700800, +91-9911300002,</p>
+            <p>+91-9910700800</p>
+          </div>
+        </div>
+        <div class="bg-fuchsia-700 p-6 text-white flex items-start space-x-4">
+          <i class="ri-map-pin-line text-2xl mt-1"></i>
+          <div>
+            <p>DLF PHASE – 2 L–25/9</p>
+            <p>Near by Privat Hospital Gurugram,</p>
+            <p>Haryana 122002</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Contact Form -->
+      <form class="bg-gray-100 p-6 space-y-4 shadow-md">
+        <input type="text" placeholder="Full Name" class="w-full p-3 border border-gray-300 focus:outline-none" />
+        <input type="email" placeholder="Email Address" class="w-full p-3 border border-gray-300 focus:outline-none" />
+        <input type="tel" placeholder="Phone No" class="w-full p-3 border border-gray-300 focus:outline-none" />
+
+        <select class="w-full p-3 border border-gray-300 focus:outline-none">
+          <option>Event Type*</option>
+          <option>Wedding</option>
+          <option>Corporate</option>
+          <option>Birthday</option>
+        </select>
+
+        <input type="date" placeholder="Event Date*" class="w-full p-3 border border-gray-300 focus:outline-none" />
+        <input type="text" placeholder="Event Venue*" class="w-full p-3 border border-gray-300 focus:outline-none" />
+
+        <label class="block font-medium text-sm mt-2">How did you hear about us?*</label>
+        <select class="w-full p-3 border border-gray-300 focus:outline-none">
+          <option>Instagram</option>
+          <option>Facebook</option>
+          <option>Google</option>
+          <option>Other</option>
+        </select>
+
+        <textarea rows="4" placeholder="We love to create personal experiences. Tell us your Story!" class="w-full p-3 border border-gray-300 focus:outline-none"></textarea>
+
+        <button type="submit" class="w-full bg-fuchsia-700 text-white font-semibold py-3 hover:bg-black transition-all">SUBMIT</button>
+      </form>
+    </div>
+  </div>
+</section>
+
 
     <!-- Main Footer -->
 <footer class="bg-gray-100 pt-16 pb-4">
