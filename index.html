@@ -189,34 +189,68 @@
     </style>
   </head>
   <body class="bg-white">
-    <!-- Header & Navigation -->
-<header class="header-nav fixed w-full z-50 bg-fuchsia-700">
+
+    
+  <!-- Alpine.js (in <head> tag) -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+<!-- Header & Navigation -->
+<header class="header-nav fixed w-full z-50 bg-fuchsia-700" x-data="{ showDropdown: false }">
   <div class="container mx-auto px-4 py-4 flex items-center justify-between">
     
-    <!-- Logo Image -->
-   <div class="logo">
+    <!-- Logo -->
+    <div class="logo">
       <a href="#">
-        <img src="images/logo.png" 
-             alt="Kumbhalgarh Event's Logo" 
-             class="max-h-14 scale-128 object-contain"
-        >
+        <img src="images/logo.png" alt="Kumbhalgarh Event's Logo" class="max-h-14 scale-128 object-contain">
       </a>
     </div>
-    <!-- Desktop Menu -->
-    <nav class="hidden md:flex items-center space-x-8">
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center space-x-8 relative">
       <a href="#home" class="text-white hover:text-opacity-75 transition-colors">Home</a>
-      <a href="#services" class="text-white hover:text-opacity-75 transition-colors">Services</a>
+
+      <!-- Click-to-Open Services Dropdown -->
+      <div class="relative">
+        <button
+          @click="showDropdown = !showDropdown"
+          class="text-white hover:text-opacity-75 transition-colors focus:outline-none"
+        >
+          Services
+        </button>
+
+        <!-- Dropdown Items -->
+        <div
+          x-show="showDropdown"
+          @click.outside="showDropdown = false"
+          x-transition
+          class="absolute top-full left-0 mt-2 w-64 bg-fuchsia-700 text-white rounded-lg shadow-lg z-50"
+        >
+          <a href="#wedding-planning" class="block px-4 py-2 hover:bg-black">Wedding Planning</a>
+          <a href="#vendor-management" class="block px-4 py-2 hover:bg-black">Vendor Management</a>
+          <a href="#wedding-hospitality" class="block px-4 py-2 hover:bg-black">Wedding Hospitality</a>
+          <a href="#wedding-designs" class="block px-4 py-2 hover:bg-black">Wedding Designs</a>
+          <a href="#wedding-logistics" class="block px-4 py-2 hover:bg-black">Wedding Logistics</a>
+          <a href="#wedding-decor" class="block px-4 py-2 hover:bg-black">Wedding Decor</a>
+          <a href="#wedding-photography" class="block px-4 py-2 hover:bg-black">Wedding Photography</a>
+          <a href="#wedding-catering" class="block px-4 py-2 hover:bg-black">Wedding Catering</a>
+          <a href="#entertainment" class="block px-4 py-2 hover:bg-black">Entertainment</a>
+          <a href="#hotel-booking" class="block px-4 py-2 hover:bg-black">Hotel Booking</a>
+          <a href="#corporate-packages" class="block px-4 py-2 hover:bg-black">Corporate Packages</a>
+          <a href="#travel-packages" class="block px-4 py-2 hover:bg-black">Complete Travel Packages</a>
+          <a href="#our-properties" class="block px-4 py-2 hover:bg-black">Our Properties</a>
+        </div>
+      </div>
+
       <a href="#planning" class="text-white hover:text-opacity-75 transition-colors">Planning</a>
       <a href="#gallery" class="text-white hover:text-opacity-75 transition-colors">Gallery</a>
       <a href="#testimonials" class="text-white hover:text-opacity-75 transition-colors">Testimonials</a>
       <a href="#blog" class="text-white hover:text-opacity-75 transition-colors">Blog</a>
     </nav>
 
-    <!-- Contact Button + Hamburger Icon -->
+    <!-- Contact + Mobile Menu -->
     <div class="flex items-center">
       <a href="#contact" class="hidden md:block bg-white text-fuchsia-700 px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">Contact Us</a>
       <button id="mobileMenuButton" class="md:hidden w-10 h-10 flex items-center justify-center text-white">
-        <!-- Hamburger Icon -->
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
         </svg>
@@ -224,32 +258,56 @@
     </div>
   </div>
 
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full z-40">
-    <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
-      <a href="#home" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Home</a>
-      <a href="#services" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Services</a>
-      <a href="#planning" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Planning</a>
-      <a href="#gallery" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Gallery</a>
-      <a href="#testimonials" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Testimonials</a>
-      <a href="#blog" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Blog</a>
-      <a href="#contact" class="mobile-link bg-fuchsia-700 text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all text-center">Contact Us</a>
+ <!-- Mobile Menu -->
+<div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full z-40" x-data="{ mobileServicesOpen: false }">
+  <div class="container mx-auto px-4 py-4 flex flex-col space-y-2">
+
+    <a href="#home" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Home</a>
+
+    <!-- Services Mobile Dropdown -->
+    <button @click="mobileServicesOpen = !mobileServicesOpen" class="text-gray-800 text-left py-2 font-semibold">
+      Services
+    </button>
+
+    <div x-show="mobileServicesOpen" x-transition class="ml-4 flex flex-col space-y-1">
+      <a href="#wedding-planning" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Planning</a>
+      <a href="#vendor-management" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Vendor Management</a>
+      <a href="#wedding-hospitality" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Hospitality</a>
+      <a href="#wedding-designs" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Designs</a>
+      <a href="#wedding-logistics" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Logistics</a>
+      <a href="#wedding-decor" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Decor</a>
+      <a href="#wedding-photography" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Photography</a>
+      <a href="#wedding-catering" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Catering</a>
+      <a href="#entertainment" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Entertainment</a>
+      <a href="#hotel-booking" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Hotel Booking</a>
+      <a href="#corporate-packages" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Corporate Packages</a>
+      <a href="#travel-packages" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Complete Travel Packages</a>
+      <a href="#our-properties" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Our Properties</a>
     </div>
+
+    <a href="#planning" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Planning</a>
+    <a href="#gallery" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Gallery</a>
+    <a href="#testimonials" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Testimonials</a>
+    <a href="#blog" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Blog</a>
+
+    <a href="#contact" class="mobile-link bg-fuchsia-700 text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all text-center">Contact Us</a>
   </div>
+</div>
+
+
+
 </header>
 
-<!-- Toggle Script -->
+<!-- Script for Mobile Menu Toggle -->
 <script>
   const mobileMenuButton = document.getElementById('mobileMenuButton');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  // Toggle on button click
   mobileMenuButton.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
   });
 
-  // Close menu when any link is clicked
   mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.add('hidden');
@@ -257,9 +315,6 @@
   });
 </script>
 
-
-  <!-- Alpine.js CDN (add in <head> if not already added) -->
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 <!-- Hero Section -->
 <section
   id="home"
@@ -310,6 +365,10 @@
   </div>
 </section>
 
+
+
+<!-- customer -->
+
    <section class="py-12 bg-white">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
@@ -347,75 +406,116 @@
 </section>
 
    
-    <section class="relative bg-white bg-opacity-80 py-16">
+   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 🔧 Custom CSS for Zoom Effect -->
+  <style>
+    .zoom-image {
+      transform: scale(1);
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .zoom-image.zoomed {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+<section class="relative bg-white bg-opacity-80 py-16">
   <div class="container mx-auto px-4">
     <!-- Title -->
     <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold mb-4 text-fuchsia-700 ">Event Management Services</h2>
-      <img src="images/title-icon.png" alt=" kumbhalgarh" class="mx-auto h-6">
+      <h2 class="text-3xl font-bold mb-4 text-fuchsia-700">Event Management Services</h2>
+      <img src="images/title-icon.png" alt="kumbhalgarh" class="mx-auto h-6">
     </div>
 
-    <!-- Services Grid -->
-    <div class="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-4 gap-8">
-      <!-- Service Item -->
+    <!-- Services Grid Row 1 -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
       <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
-        <img src="piclumen-1751026693231-removebg-preview.png" alt="Corporate" class="mx-auto mb-4 w-[60px]">
-        <h3 class="text-lg text-fuchsia-700  font-semibold mb-2">Corporate Event Management</h3>
-        <p class="text-sm text-gray-600">kumbhalgarh is your one-stop solution for managing corporate events. We provide complete event management and creative services, custom-tailored to your specific requirements.</p>
+        <img src="piclumen-1751026693231-removebg-preview.png" alt="Corporate" class="zoom-image mx-auto mb-4 w-[60px]">
+        <h3 class="text-lg text-fuchsia-700 font-semibold mb-2">Corporate Event Management</h3>
+        <p class="text-sm text-gray-600 text-justify">kumbhalgarh is your one-stop solution for managing corporate events. We provide complete event management and creative services, custom-tailored to your specific requirements.</p>
       </div>
 
-     <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
-        <img src="images/s-1.png" alt="Seminar" class="mx-auto mb-4 w-[60px]">
-        <h3 class="text-lg text-fuchsia-700   font-semibold mb-2">Seminars and Conferences</h3>
-        <p class="text-sm text-gray-600">Among the top event management companies in Delhi NCR, we organise impactful seminars and conferences. Our focus is on fulfilling diverse business needs while delivering results that exceed expectations.</p>
+      <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
+        <img src="images/s-1.png" alt="Seminar" class="zoom-image mx-auto mb-4 w-[60px]">
+        <h3 class="text-lg text-fuchsia-700 font-semibold mb-2">Seminars and Conferences</h3>
+        <p class="text-sm text-gray-600 text-justify">Among the top event management companies in Delhi NCR, we organise impactful seminars and conferences. Our focus is on fulfilling diverse business needs while delivering results that exceed expectations.</p>
       </div>
 
-     <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
-        <img src="images/s-3.png" alt="Brand" class="mx-auto mb-4 w-[60px]">
-        <h3 class="text-lg text-fuchsia-700  font-semibold mb-2">Brand Promotion</h3>
-        <p class="text-sm text-gray-600">Looking for a professional event management company for brand promotions? kumbhalgarh events is your ideal partner to handle these tasks effectively. Our skilled team ensures quality service delivery.</p>
+      <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
+        <img src="images/s-3.png" alt="Brand" class="zoom-image mx-auto mb-4 w-[60px]">
+        <h3 class="text-lg text-fuchsia-700 font-semibold mb-2">Brand Promotion</h3>
+        <p class="text-sm text-gray-600 text-justify">Looking for a professional event management company for brand promotions? kumbhalgarh events is your ideal partner to handle these tasks effectively. Our skilled team ensures quality service delivery.</p>
       </div>
 
-     <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
-        <img src="images/s-4.png" alt="MICE" class="mx-auto mb-4 w-[60px]">
-        <h3 class="text-lg text-fuchsia-700  font-semibold mb-2">MICE</h3>
-        <p class="text-sm text-gray-600">kumbhalgarh events is a leading name in managing Meetings, Incentives, Conferences & Exhibitions (MICE) in Delhi NCR. Reach out to us today for flawless MICE services tailored to your business.</p>
+      <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
+        <img src="images/s-4.png" alt="MICE" class="zoom-image mx-auto mb-4 w-[60px]">
+        <h3 class="text-lg text-fuchsia-700 font-semibold mb-2">MICE</h3>
+        <p class="text-sm text-gray-600 text-justify">kumbhalgarh events is a leading name in managing Meetings, Incentives, Conferences & Exhibitions (MICE) in Delhi NCR. Reach out to us today for flawless MICE services tailored to your business.</p>
       </div>
     </div>
 
-    <!-- Row 2 -->
+    <!-- Services Grid Row 2 -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-12">
-     <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
-        <img src="images/s-5.png" alt="Exhibition" class="mx-auto mb-4 w-[60px]">
-        <h3 class="text-lg text-fuchsia-700  font-semibold mb-2">Exhibition Management</h3>
-        <p class="text-sm text-gray-600">Attract and engage your target audience with well-executed exhibitions by kumbhalgarh events. We help boost your business intelligently and efficiently with our expert services.</p>
+      <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
+        <img src="images/s-5.png" alt="Exhibition" class="zoom-image mx-auto mb-4 w-[60px]">
+        <h3 class="text-lg text-fuchsia-700 font-semibold mb-2">Exhibition Management</h3>
+        <p class="text-sm text-gray-600 text-justify">Attract and engage your target audience with well-executed exhibitions by kumbhalgarh events. We help boost your business intelligently and efficiently with our expert services.</p>
       </div>
 
       <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
-        <img src="images/s-6.png" alt="Bollywood Artists" class="mx-auto mb-4 w-[60px]">
-        <h3 class="text-lg text-fuchsia-700  font-semibold mb-2">Bollywood Artists</h3>
-        <p class="text-sm text-gray-600">kumbhalgarh is a trusted company for organising events with Bollywood celebrities. We collaborate with a wide range of stars available for private and exclusive occasions.</p>
+        <img src="images/s-6.png" alt="Bollywood Artists" class="zoom-image mx-auto mb-4 w-[60px]">
+        <h3 class="text-lg text-fuchsia-700 font-semibold mb-2">Bollywood Artists</h3>
+        <p class="text-sm text-gray-600 text-justify">kumbhalgarh is a trusted company for organising events with Bollywood celebrities. We collaborate with a wide range of stars available for private and exclusive occasions.</p>
       </div>
 
       <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
-        <img src="images/s-7.png" alt="Fashion Shows" class="mx-auto mb-4 w-[60px]">
-        <h3 class="text-lg text-fuchsia-700  font-semibold mb-2">Fashion Shows</h3>
-        <p class="text-sm text-gray-600">Our dynamic team of professionals and fresh talent delivers outstanding fashion show experiences. For best-in-class fashion show organisation, get in touch with us today.</p>
+        <img src="images/s-7.png" alt="Fashion Shows" class="zoom-image mx-auto mb-4 w-[60px]">
+        <h3 class="text-lg text-fuchsia-700 font-semibold mb-2">Fashion Shows</h3>
+        <p class="text-sm text-gray-600 text-justify">Our dynamic team of professionals and fresh talent delivers outstanding fashion show experiences. For best-in-class fashion show organisation, get in touch with us today.</p>
       </div>
 
       <div class="text-center bg-white border border-fuchsia-700 shadow-lg rounded-lg p-6 hover:shadow-xl transition">
-        <img src="images/s-8.png" alt="Virtual Shows" class="mx-auto mb-4 w-[60px]">
+        <img src="images/s-8.png" alt="Virtual Shows" class="zoom-image mx-auto mb-4 w-[60px]">
         <h3 class="text-lg text-fuchsia-700 font-semibold mb-2">Virtual Shows</h3>
-        <p class="text-sm text-gray-600">Overcome global limitations and continue expanding your reach. We help you promote your services or products globally with professional virtual event solutions.</p>
+        <p class="text-sm text-gray-600 text-justify">Overcome global limitations and continue expanding your reach. We help you promote your services or products globally with professional virtual event solutions.</p>
       </div>
     </div>
 
     <!-- Button -->
     <div class="text-center mt-12">
-      <a href="https://www.kumbhalgarh.in/Wedding-new1" class="inline-block bg-fuchsia-700 hover:bg-black text-white  font-medium px-6 py-3 rounded-full transition">Event Gallery</a>
+      <a href="https://www.kumbhalgarh.in/Wedding-new1" class="inline-block bg-fuchsia-700 hover:bg-black text-white font-medium px-6 py-3 rounded-full transition">Event Gallery</a>
     </div>
   </div>
 </section>
+
+<!-- ✅ Intersection Observer Script for Scroll Zoom -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll('.zoom-image');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('zoomed');
+          } else {
+            entry.target.classList.remove('zoomed');
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+
+    images.forEach(image => {
+      observer.observe(image);
+    });
+  });
+</script>
 
 
     <!-- Wedding Planning Section -->
@@ -1174,56 +1274,56 @@
       <div class="bg-white border border-fuchsia-700 p-6 rounded-xl shadow-sm hover:shadow-md transition">
         <img src="images/entertainment.png" alt="Entertainment" class="mx-auto h-14 mb-4">
         <h3 class="text-lg font-semibold text-fuchsia-700 mb-2">Entertainment</h3>
-        <p class="text-sm text-gray-600">An event is one of the strongest and most impactful methods of communication. Including entertainment elevates the experience remarkably.</p>
+        <p class="text-sm text-gray-600 text-justify">An event is one of the strongest and most impactful methods of communication. <br>Including entertainment elevates the experience remarkably.</p>
         <a href="#" class="text-fuchsia-700 text-sm mt-3 inline-block">Read More &raquo;</a>
       </div>
 
       <div class="bg-white border border-fuchsia-700 p-6 rounded-xl shadow-sm hover:shadow-md transition">
         <img src="images/events.png" alt="Events" class="mx-auto h-14 mb-4">
         <h3 class="text-lg font-semibold text-fuchsia-700 mb-2">Events</h3>
-        <p class="text-sm text-gray-600">We understand how every event matters to you—whether it's a personal occasion or a professional gathering.</p>
+        <p class="text-sm text-gray-600 text-justify">We understand how every event matters to you—whether it's a personal occasion or a professional gathering.</p>
         <a href="#" class="text-fuchsia-700 text-sm mt-3 inline-block">Read More &raquo;</a>
       </div>
 
       <div class="bg-white border border-fuchsia-700 p-6 rounded-xl shadow-sm hover:shadow-md transition">
         <img src="images/wedding-venues.png" alt="Wedding Venues" class="mx-auto h-14 mb-4">
         <h3 class="text-lg font-semibold text-fuchsia-700 mb-2">Wedding Venues</h3>
-        <p class="text-sm text-gray-600">A wedding is a cherished, once-in-a-lifetime celebration, and everyone dreams of a magnificent venue for such a special day.</p>
+        <p class="text-sm text-gray-600 text-justify">A wedding is a cherished, once-in-a-lifetime celebration, and everyone dreams of a magnificent venue for such a special day.</p>
         <a href="#" class="text-fuchsia-700 text-sm mt-3 inline-block">Read More &raquo;</a>
       </div>
 
       <div class="bg-white border border-fuchsia-700 p-6 rounded-xl shadow-sm ho ver:shadow-md transition">
         <img src="images/hospitality.png" alt="Hospitality" class="mx-auto h-14 mb-4">
         <h3 class="text-lg font-semibold text-fuchsia-700 mb-2">Hospitality</h3>
-        <p class="text-sm text-gray-600">Coordinating travel and hotel bookings can be stressful during events. We handle it all so you can stay relaxed and focused.</p>
+        <p class="text-sm text-gray-600 text-justify">Coordinating travel and hotel bookings can be stressful during events. We handle it all so you can stay relaxed and focused.</p>
         <a href="#" class="text-fuchsia-700 text-sm mt-3 inline-block">Read More &raquo;</a>
       </div>
 
       <div class="bg-white border border-fuchsia-700 p-6 rounded-xl shadow-sm hover:shadow-md transition">
         <img src="images/choreographers.png" alt="Choreographers" class="mx-auto h-14 mb-4">
         <h3 class="text-lg font-semibold text-fuchsia-700 mb-2">Choreographers</h3>
-        <p class="text-sm text-gray-600">kumbhalgarh events & Entertainments stands as a top-tier event company in India, delivering expert choreography solutions.</p>
+        <p class="text-sm text-gray-600 text-justify">kumbhalgarh events & Entertainments stands as a top-tier event company in India, delivering expert choreography solutions.</p>
         <a href="#" class="text-fuchsia-700 text-sm mt-3 inline-block">Read More &raquo;</a>
       </div>
 
       <div class="bg-white border border-fuchsia-700 p-6 rounded-xl shadow-sm hover:shadow-md transition">
         <img src="images/bollywood-singers.png" alt="Bollywood Singers" class="mx-auto h-14 mb-4">
         <h3 class="text-lg font-semibold text-fuchsia-700 mb-2">Bollywood Singers</h3>
-        <p class="text-sm text-gray-600">Planning a corporate event or city celebration with Bollywood singers? kumbhalgarh events is your go-to event partner.</p>
+        <p class="text-sm text-gray-600 text-justify">Planning a corporate event or city celebration with Bollywood singers? kumbhalgarh events is your go-to event partner.</p>
         <a href="#" class="text-fuchsia-700 text-sm mt-3 inline-block">Read More &raquo;</a>
       </div>
 
       <div class="bg-white border border-fuchsia-700 p-6 rounded-xl shadow-sm hover:shadow-md transition">
         <img src="images/international-artists.png" alt="International Artists" class="mx-auto h-14 mb-4">
         <h3 class="text-lg font-semibold text-fuchsia-700 mb-2">International Artists</h3>
-        <p class="text-sm text-gray-800">With a solid reputation in event planning, kumbhalgarh events & Entertainments brings world-class international artists to your stage.</p>
+        <p class="text-sm text-gray-800 text-justify">With a solid reputation in event planning, kumbhalgarh events & Entertainments brings world-class international artists to your stage.</p>
         <a href="#" class="text-fuchsia-700 text-sm mt-3 inline-block">Read More &raquo;</a>
       </div>
 
       <div class="bg-white border border-fuchsia-700 p-6 rounded-xl shadow-sm hover:shadow-md transition">
         <img src="images/anchors.png" alt="Anchors" class="mx-auto h-14 mb-4">
         <h3 class="text-lg font-semibold text-fuchsia-700 mb-2">Anchors</h3>
-        <p class="text-sm text-gray-600">kumbhalgarh events & Entertainments features an energetic team of skilled and lively professionals ready to host your events.</p>
+        <p class="text-sm text-gray-600 text-justify">kumbhalgarh events & Entertainments features an energetic team of skilled and lively professionals ready to host your events.</p>
         <a href="#" class="text-fuchsia-700 text-sm mt-3 inline-block">Read More &raquo;</a>
       </div>
     </div>
