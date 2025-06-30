@@ -1185,12 +1185,11 @@
 
         <div class="flex justify-center mb-10">
           <div class="tab-switcher">
-            <button class="tab-button  bg-fuchsia-700 " data-gallery="all">All</button>
-            <button class="tab-button" data-gallery="ceremony">Ceremony</button>
-            <button class="tab-button" data-gallery="reception">
-              Reception
-            </button>
-            <button class="tab-button" data-gallery="decor">Decor</button>
+            <button class="tab-button px-4 py-2 rounded-full mx-2" data-gallery="all">All</button>
+<button class="tab-button px-4 py-2 rounded-full mx-2" data-gallery="ceremony">Ceremony</button>
+<button class="tab-button px-4 py-2 rounded-full mx-2" data-gallery="reception">Reception</button>
+<button class="tab-button px-4 py-2 rounded-full mx-2" data-gallery="decor">Decor</button>
+
           </div>
         </div>
 
@@ -1325,6 +1324,39 @@
         </div>
       </div>
     </section>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const galleryItems = document.querySelectorAll(".gallery-item");
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const category = button.getAttribute("data-gallery");
+
+        // Remove active class from all buttons
+        tabButtons.forEach((btn) => btn.classList.remove("bg-fuchsia-700", "text-white"));
+        
+        // Add active class to the clicked button
+        button.classList.add("bg-fuchsia-700", "text-white");
+
+        // Show/hide gallery items
+        galleryItems.forEach((item) => {
+          const itemCategory = item.getAttribute("data-category");
+
+          if (category === "all" || itemCategory === category) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      });
+    });
+
+    // Set default active tab to "All"
+    document.querySelector(".tab-button[data-gallery='all']").click();
+  });
+</script>
+
 
     <!-- Videos Section -->
 <section class="py-16 bg-white text-center">
