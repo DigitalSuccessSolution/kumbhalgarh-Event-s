@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elegant Events - Wedding Planning & Services</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    
+    <!-- animation -->
+     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+     <!-- animation close -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#d4af37", secondary: "#f8f5e6" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      body {
+  overflow-x: hidden;
+}
+
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+          font-family: 'Poppins', sans-serif;
+      }
+      h1, h2, h3, h4, h5, h6 {
+          font-family: 'Playfair Display', serif;
+      }
+      .header-nav {
+          transition: background-color 0.3s ease;
+      }
+      .service-card, .entertainment-card, .blog-card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .service-card:hover, .entertainment-card:hover, .blog-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      .gallery-item img {
+          transition: transform 0.5s ease;
+      }
+      .gallery-item:hover img {
+          transform: scale(1.05);
+      }
+      .btn-primary {
+          background: linear-gradient(to right, #d4af37, #e5c76b);
+          transition: all 0.3s ease;
+      }
+      .btn-primary:hover {
+          background: linear-gradient(to right, #c19d2c, #d4af37);
+          box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+      }
+      .testimonial-slider {
+          transition: transform 0.5s ease;
+      }
+      input:focus, textarea:focus {
+          outline: none;
+          border-color: #d4af37;
+          box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+      .custom-checkbox {
+          position: relative;
+          padding-left: 30px;
+          cursor: pointer;
+          user-select: none;
+      }
+      .custom-checkbox input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+      }
+      .checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 20px;
+          width: 20px;
+          background-color: #fff;
+          border: 2px solid #d4af37;
+          border-radius: 4px;
+      }
+      .custom-checkbox:hover input ~ .checkmark {
+          background-color: #f8f5e6;
+      }
+      .custom-checkbox input:checked ~ .checkmark {
+          background-color: #d4af37;
+      }
+      .checkmark:after {
+          content: "";
+          position: absolute;
+          display: none;
+      }
+      .custom-checkbox input:checked ~ .checkmark:after {
+          display: block;
+      }
+      .custom-checkbox .checkmark:after {
+          left: 6px;
+          top: 2px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+      }
+      .custom-switch {
+          position: relative;
+          display: inline-block;
+          width: 50px;
+          height: 24px;
+      }
+      .custom-switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+      }
+      .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          transition: .4s;
+          border-radius: 24px;
+      }
+      .slider:before {
+          position: absolute;
+          content: "";
+          height: 18px;
+          width: 18px;
+          left: 3px;
+          bottom: 3px;
+          background-color: white;
+          transition: .4s;
+          border-radius: 50%;
+      }
+      input:checked + .slider {
+          background-color: #d4af37;
+      }
+      input:checked + .slider:before {
+          transform: translateX(26px);
+      }
+      .tab-switcher {
+          display: flex;
+          background-color: #f8f8f8;
+          border-radius: 9999px;
+          padding: 4px;
+      }
+      .tab-button {
+          padding: 8px 16px;
+          border-radius: 9999px;
+          transition: all 0.3s ease;
+          white-space: nowrap;
+      }
+      .tab-button.active {
+          background-color: #d4af37;
+          color: white;
+      }
+
+
+      
+    </style>
+  </head>
+  <body class="bg-white">
+
+    
+  <!-- Alpine.js (in <head> tag) -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+<!-- Header & Navigation -->
+<header class="header-nav fixed w-screen z-50 bg-fuchsia-700"  x-data="{ showDropdown: false }">
+  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+    
+    <!-- Logo -->
+    <div class="logo">
+      <a href="#">
+        <img src="images/logo.png" alt="Kumbhalgarh Event's Logo" class="max-h-14 scale-128 object-contain">
+      </a>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center space-x-8 relative">
+      <a href="index.html" class="text-white hover:text-opacity-75 transition-colors">Home</a>
+
+      <!-- Click-to-Open Services Dropdown -->
+      <div class="relative">
+        <button
+          @click="showDropdown = !showDropdown"
+          class="text-white hover:text-opacity-75 transition-colors focus:outline-none"
+        >
+          Services
+        </button>
+
+        <!-- Dropdown Items -->
+        <div
+          x-show="showDropdown"
+          @click.outside="showDropdown = false"
+          x-transition
+          class="absolute top-full left-0 mt-2 w-64 bg-fuchsia-700 text-white rounded-lg shadow-lg z-50"
+        >
+          <a href="Wedding-Planning.html" class="block px-4 py-2 hover:bg-black">Wedding Planning</a>
+          <a href="Vendor-Management.html" class="block px-4 py-2 hover:bg-black">Vendor Management</a>
+          <a href="Wedding-Hospitality.html" class="block px-4 py-2 hover:bg-black">Wedding Hospitality</a>
+          <a href="Wedding-Designs.html" class="block px-4 py-2 hover:bg-black">Wedding Designs</a>
+          <a href="Wedding-Logistics.html" class="block px-4 py-2 hover:bg-black">Wedding Logistics</a>
+          <a href="Wedding-Decor.html" class="block px-4 py-2 hover:bg-black">Wedding Decor</a>
+          <a href="Wedding-Photography.html" class="block px-4 py-2 hover:bg-black">Wedding Photography</a>
+          <a href="Wedding-Catering.html" class="block px-4 py-2 hover:bg-black">Wedding Catering</a>
+         <a href="Entertainment.html" class="block px-4 py-2 hover:bg-black">Entertainment</a>
+          <a href="Hotel-Booking.html" class="block px-4 py-2 hover:bg-black">Hotel Booking</a>
+          <a href="Corporate-Packages.html" class="block px-4 py-2 hover:bg-black">Corporate Packages</a>
+          <a href="Complete-Travel-Packages.html" class="block px-4 py-2 hover:bg-black">Complete Travel Packages</a>
+          <a href="Our-Properties.html" class="block px-4 py-2 hover:bg-black">Our Properties</a>
+        </div>
+      </div>
+
+      <a href="planning.html" class="text-white hover:text-opacity-75 transition-colors">Planning</a>
+      <a href="gallery.html" class="text-white hover:text-opacity-75 transition-colors">Gallery</a>
+      <a href="#testimonials" class="text-white hover:text-opacity-75 transition-colors">Testimonials</a>
+      <a href="#blog" class="text-white hover:text-opacity-75 transition-colors">Blog</a>
+    </nav>
+
+    <!-- Contact + Mobile Menu -->
+    <div class="flex items-center">
+      <a href="#contact" class="hidden md:block bg-white text-fuchsia-700 px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">Contact Us</a>
+      <button id="mobileMenuButton" class="md:hidden w-10 h-10 flex items-center justify-center text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+ <!-- Mobile Menu -->
+<div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full z-40" x-data="{ mobileServicesOpen: false }">
+  <div class="container mx-auto px-4 py-4 flex flex-col space-y-2">
+
+    <a href="index.html" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Home</a>
+
+    <!-- Services Mobile Dropdown -->
+<button @click="mobileServicesOpen = !mobileServicesOpen" class="text-gray-800 text-left py-2 font-semibold">
+  Services
+</button>
+
+<div x-show="mobileServicesOpen" x-transition class="ml-4 flex flex-col space-y-1">
+  <a href="wedding-planning.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Planning</a>
+  <a href="Vendor-Management.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Vendor Management</a>
+  <a href="Wedding-Hospitality.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Hospitality</a>
+  <a href="Wedding-Designs.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Designs</a>
+  <a href="Wedding-Logistics.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Logistics</a>
+  <a href="Wedding-Decor.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Decor</a>
+  <a href="Wedding-Photography.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Photography</a>
+  <a href="Wedding-Catering.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Catering</a>
+ <a href="Entertainment.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Entertainment</a>
+  <a href="Hotel-Booking.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Hotel Booking</a>
+  <a href="Corporate-Packages.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Corporate Packages</a>
+  <a href="Complete-Travel-Packages.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Complete Travel Packages</a>
+  <a href="Our-Properties.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Our Properties</a>
+</div>
+
+    <a href="planning.html" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Planning</a>
+    <a href="gallery.html" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Gallery</a>
+    <a href="#testimonials" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Testimonials</a>
+    <a href="#blog" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Blog</a>
+
+    <a href="#GetStarted" class="mobile-link bg-fuchsia-700 text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all text-center">Contact Us</a>
+  </div>
+</div>
+
+
+
+</header>
+
+
+<!-- Script for Mobile Menu Toggle -->
+<script>
+  const mobileMenuButton = document.getElementById('mobileMenuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
+  });
+</script>
+
+<!-- hero -->
+ <section class="relative h-[80vh] bg-cover bg-center flex items-center justify-center" style="background-image: url('services/10.png');">
+  <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+  <div class="relative z-10 text-center text-white px-4 max-w-3xl">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Hotel Booking</h1>
+    <p class="text-lg md:text-xl mb-6">Comfortable and luxury stay options for you and your guests.</p>
+    <a href="#contact" class="inline-block bg-white text-fuchsia-700 font-semibold px-6 py-3 rounded-full hover:bg-opacity-90 transition">Book Hotels</a>
+  </div>
+</section>
+
+
+  <!-- Include AOS CSS in <head> -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+<!-- Photo Gallery Section -->
+<section id="gallery" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16" data-aos="fade-down">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        Our Wedding Gallery
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Browse through our portfolio of beautiful weddings we've had the
+        pleasure of organizing.
+      </p>
+    </div>
+
+    <div class="flex justify-center mb-10" data-aos="zoom-in">
+      <div class="tab-switcher">
+        <button class="tab-button px-2 py-2 rounded-full mx-2" data-gallery="all">All</button>
+        <button class="tab-button px-2 py-2 rounded-full mx-2" data-gallery="ceremony">Ceremony</button>
+        <button class="tab-button px-2 py-2 rounded-full mx-2" data-gallery="reception">Reception</button>
+        <button class="tab-button px-2 py-2 rounded-full mx-2" data-gallery="decor">Decor</button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Gallery Item 1 -->
+      <div class="gallery-item overflow-hidden rounded-lg shadow-md" data-category="ceremony" data-aos="fade-up">
+        <div class="relative h-80 overflow-hidden">
+          <img src="images/g-1.png" alt="Wedding Ceremony" class="w-full h-full object-cover object-top" />
+          <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+            <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">View Larger</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Item 2 -->
+      <div class="gallery-item overflow-hidden rounded-lg shadow-md" data-category="reception" data-aos="fade-up">
+        <div class="relative h-80 overflow-hidden">
+          <img src="images/g-2.png" alt="Wedding Reception" class="w-full h-full object-cover object-top" />
+          <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+            <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">View Larger</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Item 3 -->
+      <div class="gallery-item overflow-hidden rounded-lg shadow-md" data-category="decor" data-aos="fade-up">
+        <div class="relative h-80 overflow-hidden">
+          <img src="images/g-3.png" alt="Wedding Decor" class="w-full h-full object-cover object-top" />
+          <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+            <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">View Larger</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Item 4 -->
+      <div class="gallery-item overflow-hidden rounded-lg shadow-md" data-category="ceremony" data-aos="fade-up">
+        <div class="relative h-80 overflow-hidden">
+          <img src="images/g-4.png" alt="Garden Ceremony" class="w-full h-full object-cover object-top" />
+          <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+            <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">View Larger</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Item 5 -->
+      <div class="gallery-item overflow-hidden rounded-lg shadow-md" data-category="reception" data-aos="fade-up">
+        <div class="relative h-80 overflow-hidden">
+          <img src="images/g-5.png" alt="First Dance" class="w-full h-full object-cover object-top" />
+          <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+            <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">View Larger</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Item 6 -->
+      <div class="gallery-item overflow-hidden rounded-lg shadow-md" data-category="decor" data-aos="fade-up">
+        <div class="relative h-80 overflow-hidden">
+          <img src="images/g-6.png" alt="Wedding Cake" class="w-full h-full object-cover object-top" />
+          <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+            <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">View Larger</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-12" data-aos="zoom-in">
+      <a href="#" class="bg-fuchsia-700 text-white px-8 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-black transition-all">
+        View Full Gallery
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Filtering Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const galleryItems = document.querySelectorAll(".gallery-item");
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const category = button.getAttribute("data-gallery");
+
+        tabButtons.forEach((btn) => btn.classList.remove("bg-fuchsia-700", "text-white"));
+        button.classList.add("bg-fuchsia-700", "text-white");
+
+        galleryItems.forEach((item) => {
+          const itemCategory = item.getAttribute("data-category");
+          item.style.display = (category === "all" || itemCategory === category) ? "block" : "none";
+        });
+      });
+    });
+
+    document.querySelector(".tab-button[data-gallery='all']").click();
+  });
+</script>
+
+<!-- Include AOS JS before </body> -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+</script>
+
+
+
+   <!-- Videos Section -->
+<section class="py-16 bg-white text-center">
+  <div class="max-w-7xl mx-auto px-4">
+
+    <!-- Heading -->
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
+      Some Spectacular Videos
+    </h2>
+    <div class="flex justify-center mb-12">
+      <div class="w-6 h-1 bg-fuchsia-700 text-white rounded-full"></div>
+      <div class="w-2 h-2  rounded-full mx-1"></div>
+      <div class="w-6 h-1 bg-fuchsia-700 text-white rounded-full"></div>
+    </div>
+
+    <!-- Video Thumbnails -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+
+  <!-- Video Card 1 -->
+  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-md">
+    <video
+      class="w-full h-56 object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="video's/WhatsApp Video 2025-06-30 at 12.55.56_8f7234e6.mp4"
+    >
+      <source src="video's/WhatsApp Video 2025-06-30 at 12.55.56_8f7234e6.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Video Card 2 -->
+  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-md">
+    <video
+      class="w-full h-56 object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="images/video2.jpg"
+    >
+      <source src="video's/WhatsApp Video 2025-06-30 at 12.55.57_550cae35.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Video Card 3 -->
+  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-md">
+    <video
+      class="w-full h-56 object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="images/video3.jpg"
+    >
+      <source src="video's/WhatsApp Video 2025-06-30 at 12.55.57_6489c5c4.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Video Card 4 -->
+  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-md">
+    <video
+      class="w-full h-56 object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="images/video4.jpg"
+    >
+      <source src="video's/WhatsApp Video 2025-06-30 at 12.55.58_e334b874.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+</div>
+
+
+    <!-- View More Button -->
+    <div class="mt-12">
+      <button class="bg-fuchsia-700 text-white hover:bg-black transition px-6 py-3 rounded text-lg font-semibold shadow-md">
+        View More
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+   <section id="testimonials" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    
+    <!-- Heading -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        What Our Couples Say
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Hear from couples who trusted us with their special day.
+      </p>
+    </div>
+
+    <!-- ✅ Testimonials List -->
+    <div id="testimonialList" class="grid md:grid-cols-2 gap-6 mb-16">
+      <!-- Static Testimonial 1 -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="flex items-center mb-4">
+          <img src="images/t-1.png" class="w-16 h-16 rounded-full object-cover mr-4" />
+          <div>
+            <h4 class="font-semibold text-gray-800">Emily & James</h4>
+            <p class="text-sm text-gray-500">June 2025</p>
+          </div>
+        </div>
+        <div class="flex text-yellow-400 text-lg mb-2">
+          ★★★★★
+        </div>
+        <p class="text-gray-700 italic">"Working with Elegant Events was the best decision. Everything was perfect and magical!"</p>
+      </div>
+
+      <!-- Static Testimonial 2 -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="flex items-center mb-4">
+          <img src="images/t-2.png" class="w-16 h-16 rounded-full object-cover mr-4" />
+          <div>
+            <h4 class="font-semibold text-gray-800">Michael & Sophia</h4>
+            <p class="text-sm text-gray-500">April 2025</p>
+          </div>
+        </div>
+        <div class="flex text-yellow-400 text-lg mb-2">
+          ★★★★★
+        </div>
+        <p class="text-gray-700 italic">"Their team handled everything beautifully. Truly unforgettable experience!"</p>
+      </div>
+    </div>
+
+    <!-- ✅ Review Form -->
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+      <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Share Your Experience</h3>
+      <form id="reviewForm">
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-1">Your Name</label>
+          <input type="text" id="name" class="w-full border border-gray-300 p-2 rounded" required />
+        </div>
+        <!-- <div class="mb-4">
+          <label class="block text-gray-700 mb-1">Wedding Date</label>
+          <input type="date" id="date" class="w-full border border-gray-300 p-2 rounded" required />
+        </div> -->
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-1">Rating</label>
+          <select id="rating" class="w-full border border-gray-300 p-2 rounded" required>
+            <option value="5">⭐⭐⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="1">⭐</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-1">Your Review</label>
+          <textarea id="review" rows="4" class="w-full border border-gray-300 p-2 rounded" required></textarea>
+        </div>
+        <button type="submit" class="bg-fuchsia-700 text-white px-6 py-2 rounded hover:bg-black w-full">
+          Submit Review
+        </button>
+      </form>
+      <p id="successMsg" class="mt-4 text-green-600 hidden text-center">Thank you for your review! 🎉</p>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ JS: Add Dynamic Testimonial -->
+<script>
+  const form = document.getElementById("reviewForm");
+  const list = document.getElementById("testimonialList");
+  const successMsg = document.getElementById("successMsg");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const date = document.getElementById("date").value;
+    const rating = document.getElementById("rating").value;
+    const review = document.getElementById("review").value;
+
+    const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
+
+    const newReview = document.createElement("div");
+    newReview.className = "bg-white p-6 rounded-lg shadow-md";
+
+    newReview.innerHTML = `
+      <div class="flex items-center mb-4">
+        <img src="https://api.dicebear.com/7.x/initials/svg?seed=${name}" class="w-16 h-16 rounded-full object-cover mr-4" />
+        <div>
+          <h4 class="font-semibold text-gray-800">${name}</h4>
+          <p class="text-sm text-gray-500">${new Date(date).toLocaleDateString()}</p>
+        </div>
+      </div>
+      <div class="flex text-yellow-400 text-lg mb-2">${stars}</div>
+      <p class="text-gray-700 italic">"${review}"</p>
+    `;
+
+    list.appendChild(newReview);
+    form.reset();
+    successMsg.classList.remove("hidden");
+    setTimeout(() => successMsg.classList.add("hidden"), 4000);
+  });
+</script>
+
+
+
+ <!-- from -->
+        <section class="py-16 bg-white" id="contact pt-16">
+  <div class="container mx-auto px-4" id="GetStarted">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-2 pt-20">CONTACT DETAILS</h2>
+    <p class="text-center text-gray-600 mb-12">"We will be glad to become a part of your unique wedding"</p>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Left Contact Info -->
+      <div class="space-y-6">
+        <div class="bg-fuchsia-700 p-6 text-white flex items-center space-x-4">
+          <i class="ri-mail-line text-2xl"></i>
+          <span>iinfo@kumbhalgarhevents.in</span>
+        </div>
+        <div class="bg-fuchsia-700 p-6 text-white flex items-start space-x-4">
+          <i class="ri-phone-line text-2xl mt-1"></i>
+          <div>
+            <p>+91-9810700800, +91-9911300002,</p>
+            <p>+91-9910700800</p>
+          </div>
+        </div>
+        <div class="bg-fuchsia-700 p-6 text-white flex items-start space-x-4">
+          <i class="ri-map-pin-line text-2xl mt-1"></i>
+          <div>
+            <p>DLF PHASE – 2 L–25/9</p>
+            <p>Near by Privat Hospital Gurugram,</p>
+            <p>Haryana 122002</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Contact Form -->
+      <form class="bg-gray-100 p-6 space-y-4 shadow-md">
+        <input type="text" placeholder="Full Name" class="w-full p-3 border border-gray-300 focus:outline-none" />
+        <input type="email" placeholder="Email Address" class="w-full p-3 border border-gray-300 focus:outline-none" />
+        <input type="tel" placeholder="Phone No" class="w-full p-3 border border-gray-300 focus:outline-none" />
+
+        <select class="w-full p-3 border border-gray-300 focus:outline-none">
+          <option>Event Type*</option>
+          <option>Wedding</option>
+          <option>Corporate</option>
+          <option>Birthday</option>
+        </select>
+
+        <input type="date" placeholder="Event Date*" class="w-full p-3 border border-gray-300 focus:outline-none" />
+        <input type="text" placeholder="Event Venue*" class="w-full p-3 border border-gray-300 focus:outline-none" />
+
+        <label class="block font-medium text-sm mt-2">How did you hear about us?*</label>
+        <select class="w-full p-3 border border-gray-300 focus:outline-none">
+          <option>Instagram</option>
+          <option>Facebook</option>
+          <option>Google</option>
+          <option>Other</option>
+        </select>
+
+        <textarea rows="4" placeholder="We love to create personal experiences. Tell us your Story!" class="w-full p-3 border border-gray-300 focus:outline-none"></textarea>
+
+        <button type="submit" class="w-full bg-fuchsia-700 text-white font-semibold py-3 hover:bg-black transition-all">SUBMIT</button>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- 📞 Phone Icon – Right Bottom (above WhatsApp) -->
+<a href="tel:+919911300002" class="fixed right-4 bottom-16 z-50">
+  <div class="w-10 h-10 rounded-full bg-fuchsia-700 flex items-center justify-center shadow-md blink-icon">
+    <i class="ri-phone-line text-white text-xl"></i>
+  </div>
+</a>
+
+<!-- 🟢 WhatsApp Icon – Right Bottom -->
+<a href="https://wa.me/919911300002" target="_blank" class="fixed right-4 bottom-4 z-50">
+  <div class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center shadow-md blink-icon">
+    <i class="ri-whatsapp-line text-white text-xl"></i>
+  </div>
+</a>
+
+<!-- 🔁 Animation CSS -->
+<style>
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .blink-icon {
+    animation: blink 1.5s infinite;
+  }
+</style>
+
+
+   <!-- Main Footer -->
+<footer class="bg-gray-100 pt-16 pb-4">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 text-left">
+    
+    <!-- kumbhalgarh events About -->
+    <div>
+      <h2 class="text-xl font-bold text-gray-800 mb-4">kumbhalgarh events & WEDDINGS</h2>
+      <p class="text-gray-600 text-sm leading-relaxed text-justify">
+        kumbhalgarh events and Entertainments Pvt Ltd is passionate about crafting charmingly timeless and elegant luxurious weddings and events at stunning venues throughout the world. As the leading wedding designers and event organisers in Delhi and Gurgaon, we are renowned to create authentic experiences worth cherishing for a lifetime.
+      </p>
+    </div>
+
+    <!-- Links -->
+    <div>
+      <h2 class="text-xl font-bold text-gray-800 mb-4">LINKS</h2>
+      <ul class="space-y-2 text-sm text-gray-600">
+        <li><a href="#" class="hover:text-fuchsia-700">Home</a></li>
+        <li><a href="#" class="hover:text-fuchsia-700">About Us</a></li>
+        <li><a href="#" class="hover:text-fuchsia-700">Gallery</a></li>
+        <li><a href="#" class="hover:text-fuchsia-700">Blog</a></li>
+        <li><a href="#" class="hover:text-fuchsia-700">Career With Us</a></li>
+        <li><a href="#" class="hover:text-fuchsia-700">Reach Us</a></li>
+        <li><a href="#" class="hover:text-fuchsia-700">Gurgaon</a></li>
+        <li><a href="#" class="hover:text-fuchsia-700">Privacy & Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Us -->
+    <div>
+      <h2 class="text-xl font-bold text-gray-800 mb-4">CONTACT US</h2>
+      <p class="text-sm text-gray-600 leading-relaxed mb-2">
+        DLF PHASE – 2 L–25/9<br>
+        Near by Privat Hospital Gurugram,<br>
+        Haryana 122002
+      </p>
+      <p class="text-sm text-gray-600 mb-4">Email : info@kumbhalgarh events.in</p>
+
+      <!-- Social Icons -->
+      <div class="flex space-x-3">
+        <a href="#"><i class="ri-facebook-circle-fill text-2xl text-gray-700 hover:text-blue-600"></i></a>
+        <a href="#"><i class="ri-twitter-x-line text-2xl text-gray-700 hover:text-black"></i></a>
+        <a href="#"><i class="ri-pinterest-fill text-2xl text-gray-700 hover:text-red-600"></i></a>
+        <a href="#"><i class="ri-instagram-fill text-2xl text-gray-700 hover:text-pink-500"></i></a>
+        <a href="#"><i class="ri-youtube-fill text-2xl text-gray-700 hover:text-red-500"></i></a>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div>
+      <h2 class="text-xl font-bold text-gray-800 mb-4">MAP LOCATION</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.6766376501537!2d77.079727!3d28.611223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d18c0204c7a7d%3A0xe89b876fa1a8b172!2sV3%20Events%20%26%20Weddings%20-%20Best%20Destination%20Wedding%20Planner!5e0!3m2!1sen!2sin!4v1651498289071!5m2!1sen!2sin"
+        width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- Bottom Strip -->
+  <div class=" bg-fuchsia-700 text-center py-4 mt-10">
+    <p class="text-sm text-white ">
+      Copyright© kumbhalgarh events & ENTERTAINMENTS PVT.LTD 2018, All right reserved. |
+      <a href="#" class="underline hover:text-yellow-300">Privacy Policy</a> |
+      Designs & Developed by Digital success
+    </p>
+  </div>
+</footer>

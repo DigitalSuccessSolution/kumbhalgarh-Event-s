@@ -255,7 +255,7 @@
       </div>
 
       <a href="planning.html" class="text-white hover:text-opacity-75 transition-colors">Planning</a>
-      <a href="#gallery" class="text-white hover:text-opacity-75 transition-colors">Gallery</a>
+      <a href="gallery.html" class="text-white hover:text-opacity-75 transition-colors">Gallery</a>
       <a href="#testimonials" class="text-white hover:text-opacity-75 transition-colors">Testimonials</a>
       <a href="#blog" class="text-white hover:text-opacity-75 transition-colors">Blog</a>
     </nav>
@@ -1205,221 +1205,7 @@
   });
 </script>
 
-   <!-- Include AOS CSS in <head> -->
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-<!-- Photo Gallery Section -->
-<section id="gallery" class="py-20 bg-white">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-16" data-aos="fade-down">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-        Our Wedding Gallery
-      </h2>
-      <p class="text-gray-600 max-w-2xl mx-auto">
-        Browse through our portfolio of beautiful weddings we've had the
-        pleasure of organizing.
-      </p>
-    </div>
-
-    <div class="flex justify-center mb-10" data-aos="zoom-in">
-      <div class="tab-switcher">
-        <button class="tab-button px-2 py-2 rounded-full mx-2" data-gallery="all">All</button>
-        <button class="tab-button px-2 py-2 rounded-full mx-2" data-gallery="ceremony">Ceremony</button>
-        <button class="tab-button px-2 py-2 rounded-full mx-2" data-gallery="reception">Reception</button>
-        <button class="tab-button px-2 py-2 rounded-full mx-2" data-gallery="decor">Decor</button>
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Gallery Item 1 -->
-      <div class="gallery-item overflow-hidden rounded-lg shadow-md" data-category="ceremony" data-aos="fade-up">
-        <div class="relative h-80 overflow-hidden">
-          <img src="images/g-1.png" alt="Wedding Ceremony" class="w-full h-full object-cover object-top" />
-          <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-            <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">View Larger</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Gallery Item 2 -->
-      <div class="gallery-item overflow-hidden rounded-lg shadow-md" data-category="reception" data-aos="fade-up">
-        <div class="relative h-80 overflow-hidden">
-          <img src="images/g-2.png" alt="Wedding Reception" class="w-full h-full object-cover object-top" />
-          <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-            <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">View Larger</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Gallery Item 3 -->
-      <div class="gallery-item overflow-hidden rounded-lg shadow-md" data-category="decor" data-aos="fade-up">
-        <div class="relative h-80 overflow-hidden">
-          <img src="images/g-3.png" alt="Wedding Decor" class="w-full h-full object-cover object-top" />
-          <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-            <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">View Larger</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Gallery Item 4 -->
-      <div class="gallery-item overflow-hidden rounded-lg shadow-md" data-category="ceremony" data-aos="fade-up">
-        <div class="relative h-80 overflow-hidden">
-          <img src="images/g-4.png" alt="Garden Ceremony" class="w-full h-full object-cover object-top" />
-          <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-            <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">View Larger</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Gallery Item 5 -->
-      <div class="gallery-item overflow-hidden rounded-lg shadow-md" data-category="reception" data-aos="fade-up">
-        <div class="relative h-80 overflow-hidden">
-          <img src="images/g-5.png" alt="First Dance" class="w-full h-full object-cover object-top" />
-          <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-            <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">View Larger</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Gallery Item 6 -->
-      <div class="gallery-item overflow-hidden rounded-lg shadow-md" data-category="decor" data-aos="fade-up">
-        <div class="relative h-80 overflow-hidden">
-          <img src="images/g-6.png" alt="Wedding Cake" class="w-full h-full object-cover object-top" />
-          <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-            <button class="bg-fuchsia-700 text-white px-4 py-2 rounded-full">View Larger</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-center mt-12" data-aos="zoom-in">
-      <a href="#" class="bg-fuchsia-700 text-white px-8 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-black transition-all">
-        View Full Gallery
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Gallery Filtering Script -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const tabButtons = document.querySelectorAll(".tab-button");
-    const galleryItems = document.querySelectorAll(".gallery-item");
-
-    tabButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const category = button.getAttribute("data-gallery");
-
-        tabButtons.forEach((btn) => btn.classList.remove("bg-fuchsia-700", "text-white"));
-        button.classList.add("bg-fuchsia-700", "text-white");
-
-        galleryItems.forEach((item) => {
-          const itemCategory = item.getAttribute("data-category");
-          item.style.display = (category === "all" || itemCategory === category) ? "block" : "none";
-        });
-      });
-    });
-
-    document.querySelector(".tab-button[data-gallery='all']").click();
-  });
-</script>
-
-<!-- Include AOS JS before </body> -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 800,
-    once: true
-  });
-</script>
-
-
-
-    <!-- Videos Section -->
-<section class="py-16 bg-white text-center">
-  <div class="max-w-7xl mx-auto px-4">
-
-    <!-- Heading -->
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
-      Some Spectacular Videos
-    </h2>
-    <div class="flex justify-center mb-12">
-      <div class="w-6 h-1 bg-fuchsia-700 text-white rounded-full"></div>
-      <div class="w-2 h-2  rounded-full mx-1"></div>
-      <div class="w-6 h-1 bg-fuchsia-700 text-white rounded-full"></div>
-    </div>
-
-    <!-- Video Thumbnails -->
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-
-  <!-- Video Card 1 -->
-  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-md">
-    <video
-      class="w-full h-56 object-cover"
-      autoplay
-      muted
-      loop
-      playsinline
-      poster="video's/WhatsApp Video 2025-06-30 at 12.55.56_8f7234e6.mp4"
-    >
-      <source src="video's/WhatsApp Video 2025-06-30 at 12.55.56_8f7234e6.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-  </div>
-
-  <!-- Video Card 2 -->
-  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-md">
-    <video
-      class="w-full h-56 object-cover"
-      autoplay
-      muted
-      loop
-      playsinline
-      poster="images/video2.jpg"
-    >
-      <source src="video's/WhatsApp Video 2025-06-30 at 12.55.57_550cae35.mp4" type="video/mp4" />
-    </video>
-  </div>
-
-  <!-- Video Card 3 -->
-  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-md">
-    <video
-      class="w-full h-56 object-cover"
-      autoplay
-      muted
-      loop
-      playsinline
-      poster="images/video3.jpg"
-    >
-      <source src="video's/WhatsApp Video 2025-06-30 at 12.55.57_6489c5c4.mp4" type="video/mp4" />
-    </video>
-  </div>
-
-  <!-- Video Card 4 -->
-  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-md">
-    <video
-      class="w-full h-56 object-cover"
-      autoplay
-      muted
-      loop
-      playsinline
-      poster="images/video4.jpg"
-    >
-      <source src="video's/WhatsApp Video 2025-06-30 at 12.55.58_e334b874.mp4" type="video/mp4" />
-    </video>
-  </div>
-
-</div>
-
-
-    <!-- View More Button -->
-    <div class="mt-12">
-      <button class="bg-fuchsia-700 text-white hover:bg-black transition px-6 py-3 rounded text-lg font-semibold shadow-md">
-        View More
-      </button>
-    </div>
-  </div>
-</section>
+ 
 
 <!-- Contact CTA Section -->
 <section class="bg-fuchsia-700  py-16 text-white">
@@ -1672,242 +1458,142 @@
 </script>
 
 
-    <!-- Blog Section -->
-    <section id="blog" class="py-20 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Wedding Planning Tips
-          </h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
-            Explore our blog for expert advice and inspiration for your special
-            day.
-          </p>
-        </div>
+  <!-- Blog Section -->
+<section id="blog" class="py-20 bg-white" x-data="blogSection" x-init="$nextTick(() => { visiblePosts = 1 })">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Wedding Planning Tips</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Explore our blog for expert advice and inspiration for your special day.
+      </p>
+    </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          <div class="lg:col-span-2">
+    <!-- Blog Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      
+      <!-- Featured Blog (Always Visible) -->
+      <div class="lg:col-span-2">
+        <div class="blog-card bg-white rounded-lg shadow-md overflow-hidden h-full">
+          <div class="relative h-80 overflow-hidden">
+            <img
+              src="services/a-1.png"
+              alt="Wedding Planning Guide"
+              class="w-full h-full object-cover object-top"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="bg-primary text-white text-xs px-3 py-1 rounded-full uppercase">Featured</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center text-sm text-gray-500 mb-3">
+              <span class="flex items-center mr-4"><i class="ri-calendar-line mr-1"></i>June 25, 2025</span>
+              <span class="flex items-center"><i class="ri-time-line mr-1"></i>8 min read</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">The Ultimate Wedding Planning Timeline</h3>
+            <p class="text-gray-600 mb-4">
+              A complete guide to help you plan from engagement to the big day.
+            </p>
+            <a href="#" class="text-fuchsia-700 font-medium inline-flex items-center hover:underline">
+              Read Article <i class="ri-arrow-right-line ml-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dynamic Blog Cards (1 by 1 on Mobile) -->
+      <div class="lg:col-span-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <template x-for="(post, index) in posts" :key="index">
             <div
-              class="blog-card bg-white rounded-lg shadow-md overflow-hidden h-full"
+              class="blog-card bg-white rounded-lg shadow-md overflow-hidden"
+              x-show="index < visiblePosts || window.innerWidth >= 768"
+              x-transition
             >
-              <div class="relative h-80 overflow-hidden">
-                <img
-                  src="https://readdy.ai/api/search-image?query=elegant%20wedding%20planning%20scene%20with%20wedding%20planner%20and%20couple%20reviewing%20details%2C%20looking%20at%20design%20elements%2C%20with%20planning%20materials%20spread%20out%20on%20a%20table%2C%20professional%20photography%20with%20soft%20natural%20lighting&width=600&height=400&seq=21&orientation=landscape"
-                  alt="Wedding Planning Guide"
-                  class="w-full h-full object-cover object-top"
-                />
+              <div class="relative h-48 overflow-hidden">
+                <img :src="post.image" :alt="post.title" class="w-full h-full object-cover object-top" />
                 <div class="absolute top-4 left-4">
-                  <span
-                    class="bg-primary text-white text-xs px-3 py-1 rounded-full uppercase"
-                    >Featured</span
-                  >
+                  <span class="bg-secondary text-gray-800 text-xs px-3 py-1 rounded-full uppercase" x-text="post.tag"></span>
                 </div>
               </div>
-              <div class="p-6">
-                <div class="flex items-center text-sm text-gray-500 mb-3">
-                  <span class="flex items-center mr-4">
-                    <i class="ri-calendar-line mr-1"></i>
-                    June 25, 2025
-                  </span>
-                  <span class="flex items-center">
-                    <i class="ri-time-line mr-1"></i>
-                    8 min read
-                  </span>
+              <div class="p-4">
+                <div class="flex items-center text-xs text-gray-500 mb-2">
+                  <span class="flex items-center mr-3"><i class="ri-calendar-line mr-1"></i> <span x-text="post.date"></span></span>
+                  <span class="flex items-center"><i class="ri-time-line mr-1"></i> <span x-text="post.time"></span></span>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-3">
-                  The Ultimate Wedding Planning Timeline: Month by Month Guide
-                </h3>
-                <p class="text-gray-600 mb-4">
-                  A comprehensive guide to help you navigate the wedding
-                  planning process from engagement to the big day, with expert
-                  tips and checklists.
-                </p>
-                <a
-                  href="#"
-                  class="text-fuchsia-700 font-medium inline-flex items-center hover:underline"
-                >
-                  Read Article
-                  <i class="ri-arrow-right-line ml-1"></i>
+                <h3 class="text-lg font-bold text-gray-800 mb-2" x-text="post.title"></h3>
+                <a href="#" class="text-fuchsia-700 text-sm font-medium inline-flex items-center hover:underline">
+                  Read Article <i class="ri-arrow-right-line ml-1"></i>
                 </a>
               </div>
             </div>
-          </div>
-
-          <div class="lg:col-span-2">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 h-full">
-              <div
-                class="blog-card bg-white rounded-lg shadow-md overflow-hidden"
-              >
-                <div class="relative h-48 overflow-hidden">
-                  <img
-                    src="https://readdy.ai/api/search-image?query=elegant%20wedding%20venue%20with%20beautiful%20decoration%2C%20showing%20different%20seating%20arrangements%2C%20floral%20centerpieces%2C%20and%20lighting%20design%2C%20professional%20photography%20with%20soft%20natural%20lighting&width=300&height=200&seq=22&orientation=landscape"
-                    alt="Venue Selection"
-                    class="w-full h-full object-cover object-top"
-                  />
-                  <div class="absolute top-4 left-4">
-                    <span
-                      class="bg-secondary text-gray-800 text-xs px-3 py-1 rounded-full uppercase"
-                      >Venues</span
-                    >
-                  </div>
-                </div>
-                <div class="p-4">
-                  <div class="flex items-center text-xs text-gray-500 mb-2">
-                    <span class="flex items-center mr-3">
-                      <i class="ri-calendar-line mr-1"></i>
-                      June 20, 2025
-                    </span>
-                    <span class="flex items-center">
-                      <i class="ri-time-line mr-1"></i>
-                      5 min read
-                    </span>
-                  </div>
-                  <h3 class="text-lg font-bold text-gray-800 mb-2">
-                    10 Questions to Ask Before Booking Your Wedding Venue
-                  </h3>
-                  <a
-                    href="#"
-                    class="text-fuchsia-700 text-sm font-medium inline-flex items-center hover:underline"
-                  >
-                    Read Article
-                    <i class="ri-arrow-right-line ml-1"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div
-                class="blog-card bg-white rounded-lg shadow-md overflow-hidden"
-              >
-                <div class="relative h-48 overflow-hidden">
-                  <img
-                    src="https://readdy.ai/api/search-image?query=elegant%20wedding%20floral%20arrangements%20with%20beautiful%20bouquets%2C%20centerpieces%2C%20and%20decorative%20elements%2C%20showcasing%20different%20flower%20types%20and%20color%20schemes%2C%20professional%20photography%20with%20soft%20natural%20lighting&width=300&height=200&seq=23&orientation=landscape"
-                    alt="Floral Trends"
-                    class="w-full h-full object-cover object-top"
-                  />
-                  <div class="absolute top-4 left-4">
-                    <span
-                      class="bg-secondary text-gray-800 text-xs px-3 py-1 rounded-full uppercase"
-                      >Decor</span
-                    >
-                  </div>
-                </div>
-                <div class="p-4">
-                  <div class="flex items-center text-xs text-gray-500 mb-2">
-                    <span class="flex items-center mr-3">
-                      <i class="ri-calendar-line mr-1"></i>
-                      June 15, 2025
-                    </span>
-                    <span class="flex items-center">
-                      <i class="ri-time-line mr-1"></i>
-                      4 min read
-                    </span>
-                  </div>
-                  <h3 class="text-lg font-bold text-gray-800 mb-2">
-                    2025 Wedding Floral Trends: What's In and What's Out
-                  </h3>
-                  <a
-                    href="#"
-                    class="text-fuchsia-700 text-sm font-medium inline-flex items-center hover:underline"
-                  >
-                    Read Article
-                    <i class="ri-arrow-right-line ml-1"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div
-                class="blog-card bg-white rounded-lg shadow-md overflow-hidden"
-              >
-                <div class="relative h-48 overflow-hidden">
-                  <img
-                    src="https://readdy.ai/api/search-image?query=elegant%20wedding%20catering%20display%20with%20gourmet%20food%20presentation%2C%20beautifully%20plated%20dishes%2C%20appetizers%2C%20and%20a%20wedding%20cake%2C%20showcasing%20high-end%20culinary%20options%2C%20professional%20food%20photography&width=300&height=200&seq=24&orientation=landscape"
-                    alt="Wedding Catering"
-                    class="w-full h-full object-cover object-top"
-                  />
-                  <div class="absolute top-4 left-4">
-                    <span
-                      class="bg-secondary text-gray-800 text-xs px-3 py-1 rounded-full uppercase"
-                      >Catering</span
-                    >
-                  </div>
-                </div>
-                <div class="p-4">
-                  <div class="flex items-center text-xs text-gray-500 mb-2">
-                    <span class="flex items-center mr-3">
-                      <i class="ri-calendar-line mr-1"></i>
-                      June 10, 2025
-                    </span>
-                    <span class="flex items-center">
-                      <i class="ri-time-line mr-1"></i>
-                      6 min read
-                    </span>
-                  </div>
-                  <h3 class="text-lg font-bold text-gray-800 mb-2">
-                    Innovative Catering Ideas to Impress Your Wedding Guests
-                  </h3>
-                  <a
-                    href="#"
-                    class="text-fuchsia-700 text-sm font-medium inline-flex items-center hover:underline"
-                  >
-                    Read Article
-                    <i class="ri-arrow-right-line ml-1"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div
-                class="blog-card bg-white rounded-lg shadow-md overflow-hidden"
-              >
-                <div class="relative h-48 overflow-hidden">
-                  <img
-                    src="https://readdy.ai/api/search-image?query=elegant%20wedding%20photography%20scene%20with%20photographer%20capturing%20bride%20and%20groom%20in%20beautiful%20setting%2C%20showing%20professional%20equipment%20and%20artistic%20composition%2C%20natural%20lighting&width=300&height=200&seq=25&orientation=landscape"
-                    alt="Wedding Photography"
-                    class="w-full h-full object-cover object-top"
-                  />
-                  <div class="absolute top-4 left-4">
-                    <span
-                      class="bg-secondary text-gray-800 text-xs px-3 py-1 rounded-full uppercase"
-                      >Photography</span
-                    >
-                  </div>
-                </div>
-                <div class="p-4">
-                  <div class="flex items-center text-xs text-gray-500 mb-2">
-                    <span class="flex items-center mr-3">
-                      <i class="ri-calendar-line mr-1"></i>
-                      June 5, 2025
-                    </span>
-                    <span class="flex items-center">
-                      <i class="ri-time-line mr-1"></i>
-                      5 min read
-                    </span>
-                  </div>
-                  <h3 class="text-lg font-bold text-gray-800 mb-2">
-                    How to Choose the Perfect Wedding Photographer for Your
-                    Style
-                  </h3>
-                  <a
-                    href="#"
-                    class="text-fuchsia-700 text-sm font-medium inline-flex items-center hover:underline"
-                  >
-                    Read Article
-                    <i class="ri-arrow-right-line ml-1"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          </template>
         </div>
 
-        <div class="text-center mt-12">
-          <a
-            href="#"
-            class=" bg-fuchsia-700 text-white px-8 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-black transition-all"
-            >View All Articles</a
-          >
+        <!-- Buttons on Mobile Only -->
+        <div class="sm:hidden mt-6 text-center">
+          <button
+            class="bg-fuchsia-700 text-white px-4 py-2 rounded-full text-sm"
+            x-show="visiblePosts < posts.length"
+            @click="visiblePosts += 1"
+          >View More</button>
+
+          <button
+            class="bg-gray-500 text-white px-4 py-2 rounded-full text-sm mt-2"
+            x-show="visiblePosts > 1"
+            @click="visiblePosts = 1"
+          >View Less</button>
         </div>
       </div>
-    </section>
+    </div>
+
+    <!-- View All Articles (Always Visible) -->
+    <div class="text-center mt-12">
+      <a href="#" class="bg-fuchsia-700 text-white px-8 py-3 rounded-button font-medium hover:bg-black transition-all">
+        View All Articles
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Alpine.js Logic -->
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('blogSection', () => ({
+      visiblePosts: 1,
+      posts: [
+        {
+          image: "services/a-2.png",
+          tag: "Venues",
+          date: "June 20, 2025",
+          time: "5 min read",
+          title: "10 Questions to Ask Before Booking Your Wedding Venue"
+        },
+        {
+          image: "services/a-3.png",
+          tag: "Decor",
+          date: "June 15, 2025",
+          time: "4 min read",
+          title: "2025 Wedding Floral Trends: What's In and What's Out"
+        },
+        {
+          image: "services/a-4.png",
+          tag: "Catering",
+          date: "June 10, 2025",
+          time: "6 min read",
+          title: "Innovative Catering Ideas to Impress Your Wedding Guests"
+        },
+        {
+          image: "services/a-5.png",
+          tag: "Photography",
+          date: "June 5, 2025",
+          time: "5 min read",
+          title: "How to Choose the Perfect Wedding Photographer"
+        }
+      ]
+    }));
+  });
+</script>
+
 
     <!-- from -->
         <section class="py-16 bg-white" id="contact pt-16">
