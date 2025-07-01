@@ -525,6 +525,31 @@
     </div>
   </div>
 </section>
+<!-- 📞 Phone Icon – Right Bottom (above WhatsApp) -->
+<a href="tel:+919911300002" class="fixed right-4 bottom-16 z-50">
+  <div class="w-10 h-10 rounded-full bg-fuchsia-700 flex items-center justify-center shadow-md blink-icon">
+    <i class="ri-phone-line text-white text-xl"></i>
+  </div>
+</a>
+
+<!-- 🟢 WhatsApp Icon – Right Bottom -->
+<a href="https://wa.me/919911300002" target="_blank" class="fixed right-4 bottom-4 z-50">
+  <div class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center shadow-md blink-icon">
+    <i class="ri-whatsapp-line text-white text-xl"></i>
+  </div>
+</a>
+
+<!-- 🔁 Animation CSS -->
+<style>
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .blink-icon {
+    animation: blink 1.5s infinite;
+  }
+</style>
 
 
    <!-- Main Footer -->
