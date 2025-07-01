@@ -341,7 +341,336 @@
 
 
 
+  <!-- Entertainment Options -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Entertainment Options
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto ">
+            Choose from our curated selection of premium entertainment options
+            to create the perfect atmosphere.
+          </p>
+        </div>
 
+        <div class="tab-switcher flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-12 px-4">
+  <button
+    class="tab-button bg-fuchsia-700 text-white px-8 py-3 rounded-full font-semibold text-center w-full sm:w-auto"
+    data-tab="music"
+  >
+    Music
+  </button>
+
+  <button
+    class="tab-button bg-fuchsia-700 text-white px-8 py-3 rounded-full font-semibold text-center w-full sm:w-auto"
+    data-tab="performance"
+  >
+    Performances
+  </button>
+
+  <button
+    class="tab-button bg-fuchsia-700 text-white px-8 py-3 rounded-full font-semibold text-center w-full sm:w-auto"
+    data-tab="activities"
+  >
+    Activities
+  </button>
+</div>
+
+
+        <div class="tab-content" id="musicTab">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="entertainment-card bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20live%20band%20performing%20at%20a%20wedding%20reception%2C%20with%20musicians%20in%20formal%20attire%20playing%20instruments%20on%20a%20stage%20with%20professional%20lighting%2C%20capturing%20the%20atmosphere%20of%20a%20high-end%20wedding%20celebration&width=400&height=300&seq=3&orientation=landscape"
+                  alt="Live Band"
+                  class="w-full h-full object-cover object-top"
+                />
+                <div
+                  class="absolute top-4 right-4  bg-fuchsia-700 text-white px-3 py-1 rounded-full text-sm"
+                >
+                  Popular
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Live Band</h3>
+                <p class="text-gray-600 mb-4">
+                  Professional musicians performing your favorite songs live for
+                  an unforgettable experience.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-fuchsia-700 font-bold">From $2,500</span>
+                  <span class="text-gray-800 text-sm">Available</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="entertainment-card bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=professional%20DJ%20setup%20at%20an%20elegant%20wedding%20reception%20with%20DJ%20mixing%20music%2C%20high-end%20equipment%2C%20lighting%20effects%2C%20and%20a%20dance%20floor%20with%20guests%20dancing%2C%20capturing%20the%20atmosphere%20of%20a%20sophisticated%20wedding%20celebration&width=400&height=300&seq=4&orientation=landscape"
+                  alt="Professional DJ"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Professional DJ
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Experienced DJs with premium sound systems to keep your dance
+                  floor packed all night.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-fuchsia-700  font-bold">From $1,200</span>
+                  <span class="text-gray-800 text-sm">Available</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="entertainment-card bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20string%20quartet%20performing%20at%20a%20wedding%20ceremony%2C%20with%20musicians%20in%20formal%20attire%20playing%20classical%20instruments%20in%20a%20beautifully%20decorated%20venue%20with%20flowers%20and%20soft%20lighting%2C%20capturing%20the%20atmosphere%20of%20a%20sophisticated%20wedding&width=400&height=300&seq=5&orientation=landscape"
+                  alt="String Quartet"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  String Quartet
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Classical elegance for your ceremony and cocktail hour with
+                  beautiful string arrangements.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-fuchsia-700  font-bold">From $1,800</span>
+                  <span class="text-gray-800     text-sm"
+                    >Limited Availability</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content hidden" id="performanceTab">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="entertainment-card bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20ballroom%20dancers%20performing%20at%20a%20wedding%20reception%2C%20professional%20dancers%20in%20formal%20attire%20demonstrating%20ballroom%20dancing%20with%20graceful%20movements%20in%20a%20beautifully%20decorated%20venue%20with%20soft%20lighting&width=400&height=300&seq=6&orientation=landscape"
+                  alt="Ballroom Dancers"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Ballroom Dancers
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Professional dancers to entertain your guests and offer dance
+                  lessons during the reception.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">From $1,500</span>
+                  <span class="text-green-600 text-sm">Available</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="entertainment-card bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=fire%20dancers%20performing%20at%20an%20evening%20wedding%20reception%2C%20with%20performers%20in%20elegant%20costumes%20creating%20beautiful%20fire%20displays%20against%20a%20night%20sky%2C%20with%20wedding%20guests%20watching%20in%20amazement&width=400&height=300&seq=7&orientation=landscape"
+                  alt="Fire Dancers"
+                  class="w-full h-full object-cover object-top"
+                />
+                <div
+                  class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm"
+                >
+                  Unique
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Fire Dancers
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Spectacular fire performance to create a magical atmosphere
+                  during your evening reception.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">From $2,000</span>
+                  <span class="text-green-600 text-sm"
+                    >Limited Availability</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="entertainment-card bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20acrobatic%20performers%20at%20a%20high-end%20wedding%20reception%2C%20with%20acrobats%20in%20stylish%20costumes%20performing%20aerial%20silk%20routines%20in%20a%20beautifully%20decorated%20venue%20with%20professional%20lighting&width=400&height=300&seq=8&orientation=landscape"
+                  alt="Acrobatic Performers"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Acrobatic Performers
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Breathtaking acrobatic performances that will amaze and
+                  delight your wedding guests.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">From $2,200</span>
+                  <span class="text-yellow-600 text-sm">Few Spots Left</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content hidden" id="activitiesTab">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="entertainment-card bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20photo%20booth%20setup%20at%20a%20wedding%20reception%20with%20beautiful%20backdrop%2C%20props%2C%20and%20guests%20taking%20photos%2C%20professional%20lighting%20and%20high-quality%20camera%20equipment%20in%20a%20stylish%20wedding%20venue&width=400&height=300&seq=9&orientation=landscape"
+                  alt="Photo Booth"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Luxury Photo Booth
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  High-end photo booth with custom backdrops, props, and instant
+                  printing for memorable keepsakes.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">From $800</span>
+                  <span class="text-green-600 text-sm">Available</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="entertainment-card bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20caricature%20artist%20drawing%20wedding%20guests%20at%20a%20reception%2C%20with%20the%20artist%20in%20formal%20attire%20creating%20personalized%20caricatures%20while%20guests%20watch%2C%20in%20a%20beautifully%20decorated%20wedding%20venue&width=400&height=300&seq=10&orientation=landscape"
+                  alt="Caricature Artist"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Caricature Artist
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Talented artist creating fun, personalized caricatures of your
+                  guests as unique favors.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">From $950</span>
+                  <span class="text-green-600 text-sm">Available</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="entertainment-card bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src="https://readdy.ai/api/search-image?query=elegant%20fireworks%20display%20at%20a%20wedding%20reception%2C%20with%20beautiful%20colorful%20fireworks%20lighting%20up%20the%20night%20sky%20above%20a%20wedding%20venue%2C%20with%20guests%20watching%20in%20awe%2C%20professional%20photography&width=400&height=300&seq=11&orientation=landscape"
+                  alt="Fireworks Display"
+                  class="w-full h-full object-cover object-top"
+                />
+                <div
+                  class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm"
+                >
+                  Premium
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Fireworks Display
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Spectacular custom fireworks show to end your celebration with
+                  an unforgettable finale.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">From $3,500</span>
+                  <span class="text-yellow-600 text-sm"
+                    >Limited Availability</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = {
+      music: document.getElementById('musicTab'),
+      performance: document.getElementById('performanceTab'),
+      activities: document.getElementById('activitiesTab'),
+    };
+
+    // Set initial visibility
+    tabContents.music.classList.remove('hidden');        // Show Music tab
+    tabContents.performance.classList.add('hidden');     // Hide others
+    tabContents.activities.classList.add('hidden');
+
+    // Set first tab as active
+    tabButtons.forEach(btn => btn.classList.remove('bg-fuchsia-900'));
+    tabButtons[0].classList.add('bg-fuchsia-900');
+
+    // Tab switch logic
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const selectedTab = button.getAttribute('data-tab');
+
+        // Hide all tab contents
+        Object.values(tabContents).forEach(tab => tab.classList.add('hidden'));
+
+        // Show selected tab
+        tabContents[selectedTab].classList.remove('hidden');
+
+        // Highlight selected button
+        tabButtons.forEach(btn => btn.classList.remove('bg-fuchsia-900'));
+        button.classList.add('bg-fuchsia-900');
+      });
+    });
+  });
+</script>
 
 
 
