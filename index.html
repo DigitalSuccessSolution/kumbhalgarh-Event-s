@@ -1171,35 +1171,39 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const tabButtons = document.querySelectorAll('.tab-button');
-    const tabContents = document.querySelectorAll('.tab-content');
+    const tabContents = {
+      music: document.getElementById('musicTab'),
+      performance: document.getElementById('performanceTab'),
+      activities: document.getElementById('activitiesTab'),
+    };
 
-    tabButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const target = button.getAttribute('data-tab');
+    // Set initial visibility
+    tabContents.music.classList.remove('hidden');        // Show Music tab
+    tabContents.performance.classList.add('hidden');     // Hide others
+    tabContents.activities.classList.add('hidden');
 
-        // Remove active classes
-        tabButtons.forEach((btn) => btn.classList.remove('bg-fuchsia-900'));
-        tabContents.forEach((content) => content.classList.add('hidden'));
-
-        // Add active class to clicked button and show corresponding tab
-        button.classList.add('bg-fuchsia-900');
-        document.getElementById(`${target}Tab`).classList.remove('hidden');
-      });
-    });
-
-    // Show the first tab by default
+    // Set first tab as active
+    tabButtons.forEach(btn => btn.classList.remove('bg-fuchsia-900'));
     tabButtons[0].classList.add('bg-fuchsia-900');
-    tabContents.forEach((content, index) => {
-      if (index === 0) {
-        content.classList.remove('hidden');
-      } else {
-        content.classList.add('hidden');
-      }
+
+    // Tab switch logic
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const selectedTab = button.getAttribute('data-tab');
+
+        // Hide all tab contents
+        Object.values(tabContents).forEach(tab => tab.classList.add('hidden'));
+
+        // Show selected tab
+        tabContents[selectedTab].classList.remove('hidden');
+
+        // Highlight selected button
+        tabButtons.forEach(btn => btn.classList.remove('bg-fuchsia-900'));
+        button.classList.add('bg-fuchsia-900');
+      });
     });
   });
 </script>
-
-
 
    <!-- Include AOS CSS in <head> -->
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
@@ -1442,13 +1446,15 @@
 
 
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
 </section>
 
 
 <!-- Kumbhalgarh Services Section -->
-<section class="py-16 bg-[#fefaf6] text-center">
+<section class="py-16 bg-[#fefaf6] text-center" x-data="servicesSection" x-init="$nextTick(() => { visibleCards = 2 })">
   <div class="max-w-7xl mx-auto px-4">
-    
+
     <!-- Heading -->
     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2 pt-20" id="services">kumbhalgarh events Services</h2>
     <div class="flex justify-center mb-12">
@@ -1459,107 +1465,90 @@
 
     <!-- Grid of Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-
-  <!-- Card 1 -->
-  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
-    <div class="absolute inset-0 bg-[url('images/s3-1.png')] bg-cover bg-center opacity-60"></div>
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="relative z-10 p-6 text-white">
-      <!-- s<img src="images/entertainment.png" alt="Entertainment" class="mx-auto h-14 mb-4 bg-white rounded-full p-1"> -->
-      <h3 class="text-lg font-semibold mb-2">Entertainment</h3>
-      <p class="text-sm text-justify">An event is one of the strongest and most impactful methods of communication.<br>Including entertainment elevates the experience remarkably.</p>
-      <a href="#" class="text-fuchsia-300 text-sm mt-3 inline-block">Read More &raquo;</a>
+      <template x-for="(card, index) in cards" :key="index">
+        <div 
+          x-show="visibleCards > index || window.innerWidth >= 640" 
+          class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition"
+        >
+          <div class="absolute inset-0 bg-cover bg-center opacity-60" :style="`background-image: url(${card.image})`"></div>
+          <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+          <div class="relative z-10 p-6 text-white">
+            <h3 class="text-lg font-semibold mb-2" x-text="card.title"></h3>
+            <p class="text-sm text-justify" x-text="card.description"></p>
+            <a href="#" class="text-fuchsia-300 text-sm mt-3 inline-block">Read More &raquo;</a>
+          </div>
+        </div>
+      </template>
     </div>
-  </div>
 
-  <!-- Card 2 -->
-  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
-    <div class="absolute inset-0 bg-[url('images/s3-2.png')] bg-cover bg-center opacity-60"></div>
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="relative z-10 p-6 text-white">
-      <!-- <img src="images/events.png" alt="Events" class="mx-auto h-14 mb-4 bg-white rounded-full p-1"> -->
-      <h3 class="text-lg font-semibold mb-2">Events</h3>
-      <p class="text-sm text-justify">We understand how every event matters to you—whether it's a personal occasion or a professional gathering.</p>
-      <a href="#" class="text-fuchsia-300 text-sm mt-3 inline-block">Read More &raquo;</a>
+    <!-- View More / View Less Buttons - Only on mobile -->
+    <div class="sm:hidden mt-6 text-center">
+      <button 
+        class="bg-fuchsia-700 text-white px-4 py-2 rounded-full text-sm"
+        x-show="visibleCards < cards.length"
+        @click="visibleCards += 2"
+      >View More</button>
+
+      <button 
+        class="bg-gray-400 text-white px-4 py-2 rounded-full text-sm mt-2"
+        x-show="visibleCards > 2"
+        @click="visibleCards = 2"
+      >View Less</button>
     </div>
-  </div>
 
-  <!-- Card 3 -->
-  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
-    <div class="absolute inset-0 bg-[url('images/s3-3.png')] bg-cover bg-center opacity-60"></div>
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="relative z-10 p-6 text-white">
-      <!-- <img src="images/wedding-venues.png" alt="Wedding Venues" class="mx-auto h-14 mb-4 bg-white rounded-full p-1"> -->
-      <h3 class="text-lg font-semibold mb-2">Wedding Venues</h3>
-      <p class="text-sm text-justify">A wedding is a cherished, once-in-a-lifetime celebration, and everyone dreams of a magnificent venue for such a special day.</p>
-      <a href="#" class="text-fuchsia-300 text-sm mt-3 inline-block">Read More &raquo;</a>
-    </div>
-  </div>
-
-  <!-- Card 4 -->
-  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
-    <div class="absolute inset-0 bg-[url('images/s3-4.png')] bg-cover bg-center opacity-60"></div>
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="relative z-10 p-6 text-white">
-      <!-- <img src="images/hospitality.png" alt="Hospitality" class="mx-auto h-14 mb-4 bg-white rounded-full p-1"> -->
-      <h3 class="text-lg font-semibold mb-2">Hospitality</h3>
-      <p class="text-sm text-justify">Coordinating travel and hotel bookings can be stressful during events. We handle it all so you can stay relaxed and focused.</p>
-      <a href="#" class="text-fuchsia-300 text-sm mt-3 inline-block">Read More &raquo;</a>
-    </div>
-  </div>
-
-  <!-- Card 5 -->
-  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
-    <div class="absolute inset-0 bg-[url('images/s3-5.png')] bg-cover bg-center opacity-60"></div>
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="relative z-10 p-6 text-white">
-      <!-- <img src="images/choreographers.png" alt="Choreographers" class="mx-auto h-14 mb-4 bg-white rounded-full p-1"> -->
-      <h3 class="text-lg font-semibold mb-2">Choreographers</h3>
-      <p class="text-sm text-justify">kumbhalgarh events & Entertainments stands as a top-tier event company in India, delivering expert choreography solutions.</p>
-      <a href="#" class="text-fuchsia-300 text-sm mt-3 inline-block">Read More &raquo;</a>
-    </div>
-  </div>
-
-  <!-- Card 6 -->
-  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
-    <div class="absolute inset-0 bg-[url('images/s3-6.png')] bg-cover bg-center opacity-60"></div>
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="relative z-10 p-6 text-white">
-      <!-- <img src="images/bollywood-singers.png" alt="Bollywood Singers" class="mx-auto h-14 mb-4 bg-white rounded-full p-1"> -->
-      <h3 class="text-lg font-semibold mb-2">Bollywood Singers</h3>
-      <p class="text-sm text-justify">Planning a corporate event or city celebration with Bollywood singers? kumbhalgarh events is your go-to event partner.</p>
-      <a href="#" class="text-fuchsia-300 text-sm mt-3 inline-block">Read More &raquo;</a>
-    </div>
-  </div>
-
-  <!-- Card 7 -->
-  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
-    <div class="absolute inset-0 bg-[url('images/s3-7.png')] bg-cover bg-center opacity-60"></div>
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="relative z-10 p-6 text-white">
-      <!-- <img src="images/international-artists.png" alt="International Artists" class="mx-auto h-14 mb-4 bg-white rounded-full p-1"> -->
-      <h3 class="text-lg font-semibold mb-2">International Artists</h3>
-      <p class="text-sm text-justify">With a solid reputation in event planning, kumbhalgarh events & Entertainments brings world-class international artists to your stage.</p>
-      <a href="#" class="text-fuchsia-300 text-sm mt-3 inline-block">Read More &raquo;</a>
-    </div>
-  </div>
-
-  <!-- Card 8 -->
-  <div class="relative border border-fuchsia-700 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
-    <div class="absolute inset-0 bg-[url('images/s3-8.png')] bg-cover bg-center opacity-60"></div>
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="relative z-10 p-6 text-white">
-      <h3 class="text-lg font-semibold mb-2">Anchors</h3>
-      <p class="text-sm text-justify">kumbhalgarh events & Entertainments features an energetic team of skilled and lively professionals ready to host your events.</p>
-      <a href="#" class="text-fuchsia-300 text-sm mt-3 inline-block">Read More &raquo;</a>
-    </div>
-  </div>
-
-</div>
-
-    </div>
   </div>
 </section>
+
+<!-- Alpine.js Component Script -->
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('servicesSection', () => ({
+      visibleCards: 2,
+      cards: [
+        {
+          image: 'images/s3-1.png',
+          title: 'Entertainment',
+          description: 'An event is one of the strongest and most impactful methods of communication. Including entertainment elevates the experience remarkably.'
+        },
+        {
+          image: 'images/s3-2.png',
+          title: 'Events',
+          description: "We understand how every event matters to you—whether it's a personal occasion or a professional gathering."
+        },
+        {
+          image: 'images/s3-3.png',
+          title: 'Wedding Venues',
+          description: 'A wedding is a cherished, once-in-a-lifetime celebration, and everyone dreams of a magnificent venue for such a special day.'
+        },
+        {
+          image: 'images/s3-4.png',
+          title: 'Hospitality',
+          description: 'Coordinating travel and hotel bookings can be stressful during events. We handle it all so you can stay relaxed and focused.'
+        },
+        {
+          image: 'images/s3-5.png',
+          title: 'Choreographers',
+          description: 'kumbhalgarh events & Entertainments stands as a top-tier event company in India, delivering expert choreography solutions.'
+        },
+        {
+          image: 'images/s3-6.png',
+          title: 'Bollywood Singers',
+          description: 'Planning a corporate event or city celebration with Bollywood singers? kumbhalgarh events is your go-to event partner.'
+        },
+        {
+          image: 'images/s3-7.png',
+          title: 'International Artists',
+          description: 'With a solid reputation in event planning, kumbhalgarh events brings world-class international artists to your stage.'
+        },
+        {
+          image: 'images/s3-8.png',
+          title: 'Anchors',
+          description: 'kumbhalgarh events features an energetic team of skilled and lively professionals ready to host your events.'
+        }
+      ]
+    }));
+  });
+</script>
 
 
 
