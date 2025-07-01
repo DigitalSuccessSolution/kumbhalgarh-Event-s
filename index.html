@@ -1168,6 +1168,36 @@
         </div>
       </div>
     </section>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const target = button.getAttribute('data-tab');
+
+        // Remove active classes
+        tabButtons.forEach((btn) => btn.classList.remove('bg-fuchsia-900'));
+        tabContents.forEach((content) => content.classList.add('hidden'));
+
+        // Add active class to clicked button and show corresponding tab
+        button.classList.add('bg-fuchsia-900');
+        document.getElementById(`${target}Tab`).classList.remove('hidden');
+      });
+    });
+
+    // Show the first tab by default
+    tabButtons[0].classList.add('bg-fuchsia-900');
+    tabContents.forEach((content, index) => {
+      if (index === 0) {
+        content.classList.remove('hidden');
+      } else {
+        content.classList.add('hidden');
+      }
+    });
+  });
+</script>
 
 
 
