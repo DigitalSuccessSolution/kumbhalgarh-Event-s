@@ -343,7 +343,136 @@
 
 
 
+<!-- Blog Section -->
+<section id="blog" class="py-20 bg-white" x-data="blogSection" x-init="$nextTick(() => { visiblePosts = 1 })">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Wedding Planning Tips</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Explore our blog for expert advice and inspiration for your special day.
+      </p>
+    </div>
 
+    <!-- Blog Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      
+      <!-- Featured Blog (Always Visible) -->
+      <div class="lg:col-span-2">
+        <div class="blog-card bg-white rounded-lg shadow-md overflow-hidden h-full">
+          <div class="relative h-80 overflow-hidden">
+            <img
+              src="services/a-1.png"
+              alt="Wedding Planning Guide"
+              class="w-full h-full object-cover object-top"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="bg-primary text-white text-xs px-3 py-1 rounded-full uppercase">Featured</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center text-sm text-gray-500 mb-3">
+              <span class="flex items-center mr-4"><i class="ri-calendar-line mr-1"></i>June 25, 2025</span>
+              <span class="flex items-center"><i class="ri-time-line mr-1"></i>8 min read</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">The Ultimate Wedding Planning Timeline</h3>
+            <p class="text-gray-600 mb-4">
+              A complete guide to help you plan from engagement to the big day.
+            </p>
+            <a href="#" class="text-fuchsia-700 font-medium inline-flex items-center hover:underline">
+              Read Article <i class="ri-arrow-right-line ml-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dynamic Blog Cards (1 by 1 on Mobile) -->
+      <div class="lg:col-span-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <template x-for="(post, index) in posts" :key="index">
+            <div
+              class="blog-card bg-white rounded-lg shadow-md overflow-hidden"
+              x-show="index < visiblePosts || window.innerWidth >= 768"
+              x-transition
+            >
+              <div class="relative h-48 overflow-hidden">
+                <img :src="post.image" :alt="post.title" class="w-full h-full object-cover object-top" />
+                <div class="absolute top-4 left-4">
+                  <span class="bg-secondary text-gray-800 text-xs px-3 py-1 rounded-full uppercase" x-text="post.tag"></span>
+                </div>
+              </div>
+              <div class="p-4">
+                <div class="flex items-center text-xs text-gray-500 mb-2">
+                  <span class="flex items-center mr-3"><i class="ri-calendar-line mr-1"></i> <span x-text="post.date"></span></span>
+                  <span class="flex items-center"><i class="ri-time-line mr-1"></i> <span x-text="post.time"></span></span>
+                </div>
+                <h3 class="text-lg font-bold text-gray-800 mb-2" x-text="post.title"></h3>
+                <a href="#" class="text-fuchsia-700 text-sm font-medium inline-flex items-center hover:underline">
+                  Read Article <i class="ri-arrow-right-line ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </template>
+        </div>
+
+        <!-- Buttons on Mobile Only -->
+        <div class="sm:hidden mt-6 text-center">
+          <button
+            class="bg-fuchsia-700 text-white px-4 py-2 rounded-full text-sm"
+            x-show="visiblePosts < posts.length"
+            @click="visiblePosts += 1"
+          >View More</button>
+
+          <button
+            class="bg-gray-500 text-white px-4 py-2 rounded-full text-sm mt-2"
+            x-show="visiblePosts > 1"
+            @click="visiblePosts = 1"
+          >View Less</button>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+</section>
+
+<!-- Alpine.js Logic -->
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('blogSection', () => ({
+      visiblePosts: 1,
+      posts: [
+        {
+          image: "services/a-2.png",
+          tag: "Venues",
+          date: "June 20, 2025",
+          time: "5 min read",
+          title: "10 Questions to Ask Before Booking Your Wedding Venue"
+        },
+        {
+          image: "services/a-3.png",
+          tag: "Decor",
+          date: "June 15, 2025",
+          time: "4 min read",
+          title: "2025 Wedding Floral Trends: What's In and What's Out"
+        },
+        {
+          image: "services/a-4.png",
+          tag: "Catering",
+          date: "June 10, 2025",
+          time: "6 min read",
+          title: "Innovative Catering Ideas to Impress Your Wedding Guests"
+        },
+        {
+          image: "services/a-5.png",
+          tag: "Photography",
+          date: "June 5, 2025",
+          time: "5 min read",
+          title: "How to Choose the Perfect Wedding Photographer"
+        }
+      ]
+    }));
+  });
+</script>
 
 
 
