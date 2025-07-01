@@ -220,7 +220,7 @@
 
     <!-- Desktop Navigation -->
     <nav class="hidden md:flex items-center space-x-8 relative">
-      <a href="#home" class="text-white hover:text-opacity-75 transition-colors">Home</a>
+      <a href="index.html" class="text-white hover:text-opacity-75 transition-colors">Home</a>
 
       <!-- Click-to-Open Services Dropdown -->
       <div class="relative">
@@ -238,20 +238,19 @@
           x-transition
           class="absolute top-full left-0 mt-2 w-64 bg-fuchsia-700 text-white rounded-lg shadow-lg z-50"
         >
-          <a href="#wedding-planning" class="block px-4 py-2 hover:bg-black">Wedding Planning</a>
-          <a href="#vendor-management" class="block px-4 py-2 hover:bg-black">Vendor Management</a>
-          <a href="#wedding-hospitality" class="block px-4 py-2 hover:bg-black">Wedding Hospitality</a>
-          <a href="#wedding-designs" class="block px-4 py-2 hover:bg-black">Wedding Designs</a>
-          <a href="#wedding-logistics" class="block px-4 py-2 hover:bg-black">Wedding Logistics</a>
-          <a href="#wedding-decor" class="block px-4 py-2 hover:bg-black">Wedding Decor</a>
-          <a href="#wedding-photography" class="block px-4 py-2 hover:bg-black">Wedding Photography</a>
-          <a href="#wedding-catering" class="block px-4 py-2 hover:bg-black">Wedding Catering</a>
-          <a href="#entertainment" class="block px-4 py-2 hover:bg-black">Entertainment</a>
-          <a href="#hotel-booking" class="block px-4 py-2 hover:bg-black">Hotel Booking</a>
-          <a href="#corporate-packages" class="block px-4 py-2 hover:bg-black">Corporate Packages</a>
-          <a href="#travel-packages" class="block px-4 py-2 hover:bg-black">Complete Travel Packages</a>
-          <a href="#our-properties" class="block px-4 py-2 hover:bg-black">Our Properties</a>
-        </div>
+          <a href="Wedding-Planning.html" class="block px-4 py-2 hover:bg-black">Wedding Planning</a>
+          <a href="Vendor-Management.html" class="block px-4 py-2 hover:bg-black">Vendor Management</a>
+          <a href="Wedding-Hospitality.html" class="block px-4 py-2 hover:bg-black">Wedding Hospitality</a>
+          <a href="Wedding-Designs.html" class="block px-4 py-2 hover:bg-black">Wedding Designs</a>
+          <a href="Wedding-Logistics.html" class="block px-4 py-2 hover:bg-black">Wedding Logistics</a>
+          <a href="Wedding-Decor.html" class="block px-4 py-2 hover:bg-black">Wedding Decor</a>
+          <a href="Wedding-Photography.html" class="block px-4 py-2 hover:bg-black">Wedding Photography</a>
+          <a href="Wedding-Catering.html" class="block px-4 py-2 hover:bg-black">Wedding Catering</a>
+         <a href="Entertainment.html" class="block px-4 py-2 hover:bg-black">Entertainment</a>
+          <a href="Hotel-Booking.html" class="block px-4 py-2 hover:bg-black">Hotel Booking</a>
+          <a href="Corporate-Packages.html" class="block px-4 py-2 hover:bg-black">Corporate Packages</a>
+          <a href="Complete-Travel-Packages.html" class="block px-4 py-2 hover:bg-black">Complete Travel Packages</a>
+          <a href="Our-Properties.html" class="block px-4 py-2 hover:bg-black">Our Properties</a>
       </div>
 
       <a href="#planning" class="text-white hover:text-opacity-75 transition-colors">Planning</a>
@@ -275,7 +274,7 @@
 <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full z-40" x-data="{ mobileServicesOpen: false }">
   <div class="container mx-auto px-4 py-4 flex flex-col space-y-2">
 
-    <a href="#home" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Home</a>
+    <a href="index.html" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Home</a>
 
     <!-- Services Mobile Dropdown -->
 <button @click="mobileServicesOpen = !mobileServicesOpen" class="text-gray-800 text-left py-2 font-semibold">
@@ -283,23 +282,24 @@
 </button>
 
 <div x-show="mobileServicesOpen" x-transition class="ml-4 flex flex-col space-y-1">
-  <a href="#wedding-planning" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Planning</a>
-  <a href="#vendor-management" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Vendor Management</a>
-  <a href="#wedding-hospitality" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Hospitality</a>
-  <a href="#wedding-designs" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Designs</a>
-  <a href="#wedding-logistics" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Logistics</a>
-  <a href="#wedding-decor" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Decor</a>
-  <a href="#wedding-photography" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Photography</a>
-  <a href="#wedding-catering" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Catering</a>
-  <a href="#entertainment" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Entertainment</a>
-  <a href="#hotel-booking" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Hotel Booking</a>
-  <a href="#corporate-packages" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Corporate Packages</a>
-  <a href="#travel-packages" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Complete Travel Packages</a>
-  <a href="#our-properties" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Our Properties</a>
+  <a href="wedding-planning.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Planning</a>
+  <a href="Vendor-Management.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Vendor Management</a>
+  <a href="Wedding-Hospitality.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Hospitality</a>
+  <a href="Wedding-Designs.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Designs</a>
+  <a href="Wedding-Logistics.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Logistics</a>
+  <a href="Wedding-Decor.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Decor</a>
+  <a href="Wedding-Photography.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Photography</a>
+  <a href="Wedding-Catering.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Wedding Catering</a>
+  <a href="images/Entertainment.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Entertainment</a>
+  <a href="Entertainment.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Entertainment</a>
+  <a href="Hotel-Booking.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Hotel Booking</a>
+  <a href="Corporate-Packages.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Corporate Packages</a>
+  <a href="Complete-Travel-Packages.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Complete Travel Packages</a>
+  <a href="Our-Properties.html" @click="mobileServicesOpen = false" class="mobile-link text-gray-700 hover:text-fuchsia-700 py-1">Our Properties</a>
 </div>
 
-    <a href="#planning" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Planning</a>
-    <a href="#gallery" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Gallery</a>
+    <a href="planning.html" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Planning</a>
+    <a href="gallery.html" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Gallery</a>
     <a href="#testimonials" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Testimonials</a>
     <a href="#blog" class="mobile-link text-gray-800 hover:text-fuchsia-700 py-2 transition-colors">Blog</a>
 
@@ -310,6 +310,7 @@
 
 
 </header>
+
 
 <!-- Script for Mobile Menu Toggle -->
 <script>
